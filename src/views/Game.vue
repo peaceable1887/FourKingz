@@ -12,10 +12,10 @@
             @flip-card="flipped()" 
             :cardName="`${cardsName}`"
             :cardAction="`${cardsAction}`"
+            :style="[isActive ? `${this.transformStyle}` : '' ]"
             :class="{card_inner: card_inner, isFlipped: isFlipped}"
-            :style="isActive ? `${this.transformStyle}`: ''"
             ></Card>
-        </swiper-slide>
+        </swiper-slide>      
     </swiper>
     <div class="msg" v-if="msg">
         <img src="../assets/iconmonstr-check-mark-8-240.png">
@@ -90,6 +90,10 @@
                 msg: false,
 
             }
+        },
+        computed:
+        {
+           
         },
         /* eslint-disable */
         mounted()
