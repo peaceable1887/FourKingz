@@ -40,7 +40,7 @@
 
   <script>
     // Import Swiper Vue.js components
-    import { Swiper, SwiperSlide } from 'swiper/vue';
+    import { Swiper, SwiperSlide} from 'swiper/vue';
     // Import Swiper styles
     import 'swiper/css';
     import 'swiper/css/effect-cards';
@@ -106,6 +106,7 @@
         mounted()
         {
             const swiper = document.querySelector(".swiper")
+
             swiper.addEventListener("mousemove" , () => {
                 
                 const currentSlideProgress = swiper.swiper;
@@ -115,8 +116,6 @@
                 if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) === 0 && !(this.currentValue%CARD_COUNT === 0))
                 {
                    
-                    this.transformStyle = "" 
-                    this.showCardContent = false
                 }
                      
             })
@@ -124,31 +123,39 @@
             swiper.addEventListener("touchmove" , () => {
                 
                 const currentSlideProgress = swiper.swiper;
+           
                 this.currentValue = Math.floor(currentSlideProgress.progress*1000)
                 this.activeIndex = currentSlideProgress.activeIndex+1
-            
-                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) == 0 && !(this.currentValue%CARD_COUNT == 0) )
-                {
-                    this.transformStyle = "" 
-                    this.showCardContent = false
-                }
                 
+                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) == 0 && !(this.currentValue%CARD_COUNT == 0) )
+                { 
+                   
+                   
+                }
+         
             })
 
         },
         updated()
         {
-            /*const swiper = document.querySelector(".swiper")
-            const currentSlideProgress = swiper.swiper;
-            this.currentValue = Math.floor(currentSlideProgress.progress*1000)
-            if(this.testzwei == this.activeIndex)
+            const swiper = document.querySelector(".swiper").swiper
+           
+            if(swiper.clickedIndex < swiper.activeIndex)
                 {
-                    setInterval( 
-                        function(){ console.log("sind gleich")
-                    currentSlideProgress.allowSlideNext = false },
-                    2000)
-                    
-                }*/
+             
+                    this.transformStyle = "" 
+                    this.showCardContent = false
+                }
+
+            setTimeout(() => {
+                if(swiper.clickedIndex < swiper.activeIndex)
+                {
+                    console.log("setze next auf false")
+            
+                    swiper.allowSlideNext = false
+                }
+            }, 500);
+            
         },
         /* eslint-disable */
         methods:
@@ -166,9 +173,9 @@
             flipped()
             {  
                 const swiper = document.querySelector(".swiper").swiper
-
+                swiper.allowSlideNext = true
                 this.isFlipped = true
-          
+
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {
                     this.transformStyle = "transform: rotateY(180deg);" 
@@ -206,14 +213,13 @@
                                 this.cardsName = this.cardsType[2].name
                                 this.chooseCardActionValue(this.cardsType[2].action, localStorage.getItem("king"))
                                 this.cardImg = this.cardsType[2].img
-                                this.showCardContent = !this.showCardContent
+                                this.showCardContent = !this.showCardContent;
                                 this.cardsType[2].counter++
                                 this.displayCountKing = this.cardsType[2].counter
                                 
                                 if(this.cardsType[2].counter === 4)
                                 {
                                     this.cardsType[2].isFinished = true
-                                    swiper.allowSlideNext = false
                                     this.msg = true;          
                                 }
                             break;
