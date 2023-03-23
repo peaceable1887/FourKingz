@@ -4,7 +4,7 @@
         <router-link to="/game">
             <Button text="Spiel starten"></Button>
         </router-link>
-        <router-link to="/">
+        <router-link to="/settings">
             <Button text="Einstellungen"></Button>
         </router-link>
     </div>
@@ -19,14 +19,24 @@ export default
     components:
     {
         Button
-    }
+    },
 }
 </script>
 
 <style scoped>
+.menu
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+    flex-direction: column;
+    margin: 10px;
+}
 img
 {
-    height: 250px;
+    height: 200px;
     margin-bottom: 40px;
     top: 0;
 }
@@ -39,8 +49,8 @@ img
 {
     margin: 20px 30px;
     width: 250px;
-    padding: 15px 40px;
-    font-size: 30px;
+    padding: 12px 40px;
+    font-size: 26px;
     border-radius: 10px;
 }
 </style>

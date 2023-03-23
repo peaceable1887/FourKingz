@@ -15,13 +15,12 @@ export default
 html,
 body 
 {
-  position: relative;
   height: 100%;
-  width: 100%;
   min-height: 100vh;
   font-family: Impact, Regular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: pan-y;
 }
 #app 
 {
@@ -30,5 +29,6 @@ body
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 10px;
 }
 </style>

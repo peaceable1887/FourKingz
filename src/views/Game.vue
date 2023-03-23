@@ -1,28 +1,35 @@
 <template>
+    <Header 
+    :cards="`${33-activeIndex}`"
+    :kings="`${displayCountKing}`">
+    </Header>
     <swiper
-      :effect="'cards'"
-      :grabCursor="true"
-      :touchStartPreventDefault="false"
-      :allowSlidePrev="false"
-      :modules="modules"
-      class="mySwiper"
+    :effect="'cards'"
+    :grabCursor="true"
+    :touchStartPreventDefault="false"
+    :allowSlidePrev="false"
+    :allowSlideNext="false"
+    :shortSwipes="false"
+    :longSwipesMs="0"
+    :modules="modules"
+    class="mySwiper"
     >
         <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}">
             <Card
-            @flip-card="flipped()" 
+            @flip-card="isActive ? flipped() : null" 
             :cardName="`${cardsName}`"
             :cardAction="`${cardsAction}`"
             :style="[isActive ? `${this.transformStyle}` : '' ]"
             :class="{card_inner: card_inner, isFlipped: isFlipped}"
-            ></Card>
+            >
+            </Card>
         </swiper-slide>      
     </swiper>
     <div class="msg" v-if="msg">
-        <img src="../assets/iconmonstr-check-mark-8-240.png">
-        <span class="text">Vierter König wurde gezogen!</span>
+        <span class="text">Spiel beendet. Vier Könige gezogen.</span>
         <div class="btnWrapper">
             <router-link to="/">
-                <Button text="Hauptmenü"></Button>
+                <Button @click="clearCardActionValue()" text="Hauptmenü"></Button>
             </router-link>
             <a href="/game">
                 <Button text="Neu Starten"></Button>
@@ -30,6 +37,7 @@
         </div>
     </div>
   </template>
+
   <script>
     // Import Swiper Vue.js components
     import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -39,6 +47,7 @@
     // import required modules
     import { EffectCards } from 'swiper';
 
+    import Header from "../components/Header.vue";
     import Button from "../components/Button.vue";
     import Card from "../components/Card.vue";
     
@@ -52,6 +61,7 @@
         {
             Swiper,
             SwiperSlide,
+            Header,
             Button,
             Card
         },
@@ -80,20 +90,17 @@
                 ],
                 cardsName: "",
                 cardsAction: "",
-                isOpen: true,
                 transformStyle: "",
+                activeIndex: "1",
                 activeI: "",
                 imageUrl: "",
                 cardImg: "",
                 currentValue: 0,
                 showCardContent: false,
                 msg: false,
+                displayCountKing: "0"
 
             }
-        },
-        computed:
-        {
-           
         },
         /* eslint-disable */
         mounted()
@@ -103,37 +110,65 @@
                 
                 const currentSlideProgress = swiper.swiper;
                 this.currentValue = Math.floor(currentSlideProgress.progress*1000)
+                this.activeIndex = currentSlideProgress.activeIndex+1
     
-                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/2) === 0 && !(this.currentValue%CARD_COUNT === 0))
+                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) === 0 && !(this.currentValue%CARD_COUNT === 0))
                 {
+                   
                     this.transformStyle = "" 
                     this.showCardContent = false
                 }
+                     
             })
 
             swiper.addEventListener("touchmove" , () => {
                 
                 const currentSlideProgress = swiper.swiper;
                 this.currentValue = Math.floor(currentSlideProgress.progress*1000)
-
-                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/2) === 0 && !(this.currentValue%CARD_COUNT === 0))
+                this.activeIndex = currentSlideProgress.activeIndex+1
+            
+                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) == 0 && !(this.currentValue%CARD_COUNT == 0) )
                 {
                     this.transformStyle = "" 
                     this.showCardContent = false
-                } 
+                }
                 
             })
 
         },
+        updated()
+        {
+            /*const swiper = document.querySelector(".swiper")
+            const currentSlideProgress = swiper.swiper;
+            this.currentValue = Math.floor(currentSlideProgress.progress*1000)
+            if(this.testzwei == this.activeIndex)
+                {
+                    setInterval( 
+                        function(){ console.log("sind gleich")
+                    currentSlideProgress.allowSlideNext = false },
+                    2000)
+                    
+                }*/
+        },
         /* eslint-disable */
         methods:
         {
+            chooseCardActionValue(cardAction, localStorageValue)
+            {
+                if(localStorageValue === "" || localStorageValue === null )
+                {
+                    this.cardsAction = cardAction
+                }else
+                {
+                    this.cardsAction = localStorageValue;
+                }
+            },
             flipped()
             {  
                 const swiper = document.querySelector(".swiper").swiper
-                console.log(swiper.allowSlideNext)
+
                 this.isFlipped = true
-      
+          
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {
                     this.transformStyle = "transform: rotateY(180deg);" 
@@ -145,7 +180,7 @@
                             if(this.cardsType[0].counter != 4)
                             {
                                 this.cardsName = this.cardsType[0].name
-                                this.cardsAction = this.cardsType[0].action
+                                this.chooseCardActionValue(this.cardsType[0].action, localStorage.getItem("boy"))
                                 this.cardImg = this.cardsType[0].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[0].counter++     
@@ -158,7 +193,7 @@
                             if(this.cardsType[1].counter != 4)
                             {
                                 this.cardsName = this.cardsType[1].name
-                                this.cardsAction = this.cardsType[1].action
+                                this.chooseCardActionValue(this.cardsType[1].action, localStorage.getItem("queen"))
                                 this.cardImg = this.cardsType[1].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[1].counter++
@@ -169,13 +204,16 @@
                             break;
                         case 3:
                                 this.cardsName = this.cardsType[2].name
-                                this.cardsAction = this.cardsType[2].action
+                                this.chooseCardActionValue(this.cardsType[2].action, localStorage.getItem("king"))
                                 this.cardImg = this.cardsType[2].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[2].counter++
+                                this.displayCountKing = this.cardsType[2].counter
+                                
                                 if(this.cardsType[2].counter === 4)
                                 {
                                     this.cardsType[2].isFinished = true
+                                    swiper.allowSlideNext = false
                                     this.msg = true;          
                                 }
                             break;
@@ -183,7 +221,7 @@
                             if(this.cardsType[3].counter != 4)
                             {
                                 this.cardsName = this.cardsType[3].name
-                                this.cardsAction = this.cardsType[3].action
+                                this.chooseCardActionValue(this.cardsType[3].action, localStorage.getItem("ace"))
                                 this.cardImg = this.cardsType[3].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[3].counter++
@@ -196,7 +234,7 @@
                             if(this.cardsType[4].counter != 4)
                             {
                                 this.cardsName = this.cardsType[4].name
-                                this.cardsAction = this.cardsType[4].action
+                                this.chooseCardActionValue(this.cardsType[4].action, localStorage.getItem("ten"))
                                 this.cardImg = this.cardsType[4].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[4].counter++     
@@ -209,7 +247,7 @@
                             if(this.cardsType[5].counter != 4)
                             {
                                 this.cardsName = this.cardsType[5].name
-                                this.cardsAction = this.cardsType[5].action
+                                this.chooseCardActionValue(this.cardsType[5].action, localStorage.getItem("nine"))
                                 this.cardImg = this.cardsType[5].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[5].counter++
@@ -222,7 +260,7 @@
                             if(this.cardsType[6].counter != 4)
                             {
                                 this.cardsName = this.cardsType[6].name
-                                this.cardsAction = this.cardsType[6].action
+                                this.chooseCardActionValue(this.cardsType[6].action, localStorage.getItem("eight"))
                                 this.cardImg = this.cardsType[6].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[6].counter++
@@ -235,7 +273,7 @@
                             if(this.cardsType[7].counter != 4)
                             {
                                 this.cardsName = this.cardsType[7].name
-                                this.cardsAction = this.cardsType[7].action
+                                this.chooseCardActionValue(this.cardsType[7].action, localStorage.getItem("seven"))
                                 this.cardImg = this.cardsType[7].img
                                 this.showCardContent = !this.showCardContent
                                 this.cardsType[7].counter++
@@ -249,13 +287,20 @@
                     this.isFlipped = false   
                 }
             },
+            clearCardActionValue()
+            {
+                let keysToRemove = ["king", "queen","boy", "ace","ten", "nine", "eight", "seven"]
+
+                keysToRemove.forEach(key => localStorage.removeItem(key))
+            }
         
-        }
+        },
+       
+      
     };
   </script>
 
 <style scoped>
-
 .swiper 
 {
   width: 240px;
@@ -283,9 +328,9 @@
     flex-direction: column;
     position: absolute;
     text-align: center;
-    bottom: 0;
+    top: 60px;
     font-size: 20px;
-    color:#2C9113;
+    color:#441d1d;
     background-color: white;
 }
 .msg img 
@@ -307,13 +352,12 @@
 .msg .btnWrapper Button
 {
     width: 150px;
-    padding: 10px;
+    padding: 5px;
     margin: 10px 5px;
     border-radius: 10px;
-    font-size: 20px;
-    background-color: white;
-    color: green;
-    border: green 1px solid;
+    font-size: 18px;
+    background-color: #441d1d;
+    color: #ccc661;
 }
 
 </style>

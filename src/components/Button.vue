@@ -25,4 +25,9 @@ button
     -moz-osx-font-smoothing: grayscale;
     cursor: pointer;
 }
+button:hover
+{
+    background-color: #441d1d;
+    color: #ccc661;
+}
 </style>

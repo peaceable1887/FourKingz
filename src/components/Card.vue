@@ -1,4 +1,4 @@
-<template>
+<template> 
     <div
         @click="$emit('flip-card')" 
         >
@@ -20,10 +20,11 @@
 <script>
     export default 
     {
-        name: "card-item",
+        name: "item-card",
         emits: ['flip-card'],
         props:
         {
+            cardNumber: String,
             cardName: String,
             cardAction: String
         }
