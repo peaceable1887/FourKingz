@@ -25,6 +25,11 @@
             </Card>
         </swiper-slide>      
     </swiper>
+    <div class="backToMenu">
+        <router-link to="/">
+            <Button text="Spiel beenden"></Button>
+        </router-link>
+    </div>
     <div class="msg" v-if="msg">
         <span class="text">Spiel beendet. Vier Könige gezogen.</span>
         <div class="btnWrapper">
@@ -108,13 +113,14 @@
             
             swiper.addEventListener("mousemove" , () => {
                 
-                const currentSlideProgress = swiper.swiper;
-                this.currentValue = Math.floor(currentSlideProgress.progress*1000)
-                this.activeIndex = currentSlideProgress.activeIndex+1
-    
-                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) === 0 && !(this.currentValue%CARD_COUNT === 0))
+                const slide = swiper.swiper
+
+                this.activeIndex = slide.activeIndex+1
+
+                if(slide.clickedIndex < slide.activeIndex)
                 {
-                   
+                    this.transformStyle = "" 
+                    this.showCardContent = false
                 }
                      
             })
@@ -124,6 +130,8 @@
                 const slide = swiper.swiper
 
                 this.activeIndex = slide.activeIndex+1
+                console.log(slide.activeIndex)
+                console.log(slide.clickedIndex)
 
                 if(slide.clickedIndex < slide.activeIndex)
                 {
@@ -135,19 +143,18 @@
         updated()
         {
             const swiper = document.querySelector(".swiper")
-            
+
             swiper.addEventListener("touchend" , () => {
                 
                 const slide = swiper.swiper
-
+                console.log("twst") 
                 if(slide.clickedIndex < slide.activeIndex)
                 {          
                     slide.allowSlideNext = false 
                     console.log("locked") 
                 }
             })
-            
-            
+             
         },
         /* eslint-disable */
         methods:
@@ -359,5 +366,24 @@
     background-color: #441d1d;
     color: #ccc661;
 }
+.backToMenu
+{
+    position: fixed;
+    bottom: 1%;
+    display: flex;
+    justify-content: center;
+    
+}
+.backToMenu Button
+{
+    background-color: #441d1d;
+    color: #ccc661;
+    width: 180px;
+    height: 40px;
+    padding: 6px 25px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
 
 </style>

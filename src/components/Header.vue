@@ -15,8 +15,10 @@
         {
             cards: String,
             kings: String,
-        }
+        },
+        
     }
+    
 </script>
 
 <style lang="scss" scoped>
@@ -35,9 +37,22 @@ table
     -webkit-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
 }
+
 span
 {
     color: black;
+}
+button
+{
+    border: 0; 
+    background: transparent;
+    position: absolute;
+    left: 8px;
+    top: 10px;
+}
+img
+{
+    height: 30px;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <h2>Karten selbst belegen</h2>
-    <form @submit.prevent="onSubmit">   
+    <form @submit.prevent="onSubmit">
         <label for="king">König:</label><br>
         <input type="text" id="king" name="king" v-model="king" required><br><br>
         <label for="queen">Dame:</label><br>
@@ -24,6 +24,7 @@
             <input type="submit" value="Speichern">
         </div>   
     </form>
+    <div id="snackbar">Erfolgreich gespeichert</div>
 </template>
 
 <script>
@@ -33,29 +34,44 @@
         data()
         {
             return{
-                king: "",
-                queen: "",
-                boy: "",
-                ace: "",
-                ten: "",
-                nine: "",
-                eight: "",
-                seven: "",
+                king: null,
+                queen: null,
+                boy: null,
+                ace: null,
+                ten: null,
+                nine: null,
+                eight: null,
+                seven: null,
             }
         },
         methods:
         {
+           
             onSubmit()
             {
-                //eingabelänge noch abfangen
-                localStorage.setItem("king", this.king)
-                localStorage.setItem("queen", this.queen)
-                localStorage.setItem("boy", this.boy)
-                localStorage.setItem("ace", this.ace)
-                localStorage.setItem("ten", this.ten)
-                localStorage.setItem("nine", this.nine)
-                localStorage.setItem("eight", this.eight)
-                localStorage.setItem("seven", this.seven)
+
+                if (this.king && this.queen && this.boy && this.ace 
+                && this.ten && this.nine && this.eight && this.seven)  
+                {
+                    localStorage.setItem("king", this.king)
+                    localStorage.setItem("queen", this.queen)
+                    localStorage.setItem("boy", this.boy)
+                    localStorage.setItem("ace", this.ace)
+                    localStorage.setItem("ten", this.ten)
+                    localStorage.setItem("nine", this.nine)
+                    localStorage.setItem("eight", this.eight)
+                    localStorage.setItem("seven", this.seven)
+
+                    this.sucMsg()
+                }
+                
+            },
+            
+            sucMsg()
+            {
+                let x = document.getElementById("snackbar");
+                x.className = "show";
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             },
         }
     }
@@ -119,5 +135,51 @@ input[type=submit]:hover
 {
     background-color: #441d1d;
     color: #ccc661;
+}
+.errMsg
+{
+    color: red;
+ 
+}
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }
 </style>
