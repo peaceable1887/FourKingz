@@ -91,22 +91,21 @@
                 cardsName: "",
                 cardsAction: "",
                 transformStyle: "",
-                activeIndex: "1",
+                activeIndex: 1,
                 activeI: "",
                 imageUrl: "",
                 cardImg: "",
                 currentValue: 0,
                 showCardContent: false,
                 msg: false,
-                displayCountKing: "0"
-
+                displayCountKing: "0",
             }
         },
         /* eslint-disable */
         mounted()
         {
             const swiper = document.querySelector(".swiper")
-
+            
             swiper.addEventListener("mousemove" , () => {
                 
                 const currentSlideProgress = swiper.swiper;
@@ -122,39 +121,32 @@
 
             swiper.addEventListener("touchmove" , () => {
                 
-                const currentSlideProgress = swiper.swiper;
-           
-                this.currentValue = Math.floor(currentSlideProgress.progress*1000)
-                this.activeIndex = currentSlideProgress.activeIndex+1
-                
-                if(this.currentValue != 0 && this.currentValue%(CARD_COUNT/8) == 0 && !(this.currentValue%CARD_COUNT == 0) )
-                { 
-                   
-                   
-                }
-         
-            })
+                const slide = swiper.swiper
 
-        },
-        updated()
-        {
-            const swiper = document.querySelector(".swiper").swiper
-           
-            if(swiper.clickedIndex < swiper.activeIndex)
+                this.activeIndex = slide.activeIndex+1
+
+                if(slide.clickedIndex < slide.activeIndex)
                 {
-             
                     this.transformStyle = "" 
                     this.showCardContent = false
                 }
-
-            setTimeout(() => {
-                if(swiper.clickedIndex < swiper.activeIndex)
-                {
-                    console.log("setze next auf false")
+            })
+        },
+        updated()
+        {
+            const swiper = document.querySelector(".swiper")
             
-                    swiper.allowSlideNext = false
+            swiper.addEventListener("touchend" , () => {
+                
+                const slide = swiper.swiper
+
+                if(slide.clickedIndex < slide.activeIndex)
+                {          
+                    slide.allowSlideNext = false 
+                    console.log("locked") 
                 }
-            }, 500);
+            })
+            
             
         },
         /* eslint-disable */
@@ -311,6 +303,8 @@
 {
   width: 240px;
   height: 320px;
+  position: fixed;
+
 }
 
 .swiper-slide 
@@ -332,7 +326,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     text-align: center;
     top: 60px;
     font-size: 20px;

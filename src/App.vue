@@ -20,7 +20,7 @@ body
   font-family: Impact, Regular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: none;
+  touch-action: pan-y;
 }
 #app 
 {

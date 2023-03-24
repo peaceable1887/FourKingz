@@ -67,7 +67,7 @@ h2
     font-family: Impact, Regular;
     background-color: #ccc661;
     color: #441d1d;
-    position: absolute;
+    position: fixed;
     top:0;
     width: 100%;
     margin: 0;
