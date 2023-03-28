@@ -156,6 +156,27 @@ input[type=submit]:hover
   bottom: 30px;
   font-size: 17px;
 }
+@media screen and (orientation: landscape) {
+    h2 
+    {
+        background-color: white;
+     
+        color: #441d1d;
+        position: absolute;
+        top: 30px;
+        box-shadow: none;
+        font-size: 26px;
+    }
+    form
+    {
+        height: 50%;
+    }
+    .btnWrapper
+    {
+        justify-content: space-around;
+        padding: 20px;
+    }
+}
 
 #snackbar.show {
   visibility: visible;

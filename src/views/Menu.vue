@@ -53,4 +53,20 @@ img
     font-size: 26px;
     border-radius: 10px;
 }
+@media screen and (orientation: landscape) {
+    img
+    {
+        height: 150px;
+        margin-bottom: 20px;
+        top: 0;
+    }
+    .btnWrapper Button
+    {
+        margin: 10px 30px;
+        width: 200px;
+        padding: 8px 20px;
+        font-size: 22px;
+        border-radius: 10px;
+    }
+}
 </style>
