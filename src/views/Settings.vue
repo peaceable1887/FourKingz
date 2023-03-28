@@ -145,8 +145,8 @@ input[type=submit]:hover
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
-  background-color: #333;
-  color: #fff;
+  background-color: #441d1d;
+  color: #ccc661;
   text-align: center;
   border-radius: 2px;
   padding: 16px;

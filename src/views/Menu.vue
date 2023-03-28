@@ -18,7 +18,7 @@ export default
     name: "item-menu",
     components:
     {
-        Button
+        Button,
     },
 }
 </script>

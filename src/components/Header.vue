@@ -2,9 +2,7 @@
     <table v-if="portait">
         <tr>
             <th>
-                <router-link to="/">
-                    <Button></Button>
-                </router-link>
+                <Button @click="$emit('overlay')"></Button>
             </th>
             <th>Restkarten: <span>{{ cards }}</span></th>
             <th>Könige: <span>{{ kings }}</span></th>
@@ -19,14 +17,19 @@
             <Button></Button>
             <span>Beenden</span>
         </router-link>
-        
     </div>
 </template>
 
 <script>
+import Button from "../components/Button.vue";
     export default 
     {
         name: "item-header",
+        emits:["overlay"],
+        components:
+        {
+            Button,
+        },
         props:
         {
             cards: String,
@@ -99,6 +102,7 @@ Button
     border: none;
     margin: auto;
 }
+
 .landscapeContent
 {
     position: fixed;

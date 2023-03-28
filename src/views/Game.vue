@@ -1,5 +1,6 @@
 <template>
     <Header 
+    @overlay="on()"
     :cards="`${33-activeIndex}`"
     :kings="`${displayCountKing}`">
     </Header>
@@ -25,7 +26,7 @@
             </Card>
         </swiper-slide>      
     </swiper>
-    <div class="msg" v-if="msg">
+   <!-- <div class="msg" v-if="msg">
         <span class="text">Spiel beendet. Vier Könige gezogen.</span>
         <div class="btnWrapper">
             <router-link to="/">
@@ -34,6 +35,28 @@
             <a href="/game">
                 <Button text="Neu Starten"></Button>
             </a>
+        </div>
+    </div>-->
+    <div id="overlay" ref="overlay">
+        <div id="overlayContent" v-if="msg">
+            <span class="text">Spiel beendet. Vier Könige gezogen.</span>
+            <div class="btnWrapper">
+                <a href="/game">
+                    <Button class="remain" text="Neu Starten"></Button>
+                </a><br>
+                <router-link to="/">
+                    <Button class="backToMenu" @click="clearCardActionValue()" text="Hauptmenü"></Button>
+                </router-link>
+            </div>
+        </div>
+        <div id="overlayContent" v-else>
+            <span class="text">Möchtest du das Spiel beenden?</span>
+            <div class="btnWrapper">
+                <Button class="remain" @click="off()" text="Nein"></Button>
+                <router-link to="/">
+                    <Button class="backToMenu" text="Ja"></Button>
+                </router-link>
+            </div>
         </div>
     </div>
   </template>
@@ -63,7 +86,7 @@
             SwiperSlide,
             Header,
             Button,
-            Card
+            Card,
         },
         setup() 
         {
@@ -211,7 +234,13 @@
                                 if(this.cardsType[2].counter === 4)
                                 {
                                     this.cardsType[2].isFinished = true
-                                    this.msg = true;          
+                                    this.msg = true;   
+                                    if(this.msg)
+                                    {
+                                        setTimeout(() => {
+                                            this.on();
+                                        }, 2000);
+                                    }       
                                 }
                             break;
                         case 4:
@@ -284,11 +313,22 @@
                   
                 }
             },
+
             clearCardActionValue()
             {
                 let keysToRemove = ["king", "queen","boy", "ace","ten", "nine", "eight", "seven"]
 
                 keysToRemove.forEach(key => localStorage.removeItem(key))
+            },
+
+            on()
+            {
+                this.$refs.overlay.style.display = "block";
+            },
+
+            off() 
+            {
+                this.$refs.overlay.style.display = "none";
             }
         
         },
@@ -305,7 +345,6 @@
   position: fixed;
 
 }
-
 .swiper-slide 
 {
   display: flex;
@@ -320,62 +359,56 @@
   user-select: none; /* Standard syntax */
 }
 
-.msg
+#overlay 
 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlayContent
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    font-size: 26px;
+    width: 250px;
     text-align: center;
-    top: 70px;
-    font-size: 20px;
-    color:#441d1d;
+    color: #441d1d;
     background-color: white;
-}
-.msg img 
-{
-    height: 50px;
-    width: 50px;
-    margin: auto;
-}
-.msg span
-{
-    margin-top: 10px;
-}
-.msg .btnWrapper
-{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-.msg .btnWrapper Button
-{
-    width: 150px;
-    padding: 5px;
-    margin: 10px 5px;
-    border-radius: 10px;
-    font-size: 18px;
-    background-color: #441d1d;
-    color: #ccc661;
-}
-.backToMenu
-{
-    position: fixed;
-    bottom: 1%;
-    display: flex;
-    justify-content: center;
-    
-}
-.backToMenu Button
-{
-    background-color: #441d1d;
-    color: #ccc661;
-    width: 180px;
-    height: 40px;
-    padding: 6px 25px;
-    font-size: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     border-radius: 10px;
 }
+.btnWrapper
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+
+Button
+{
+    padding: 10px;
+    width: 200px;
+    font-size: 24px;
+    border-radius: 10px;
+    margin: 10px;
+    color:#ccc661;
+    background-color: #441d1d;
+}
+
 
 
 </style>
