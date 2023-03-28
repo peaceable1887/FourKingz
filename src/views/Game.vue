@@ -25,11 +25,6 @@
             </Card>
         </swiper-slide>      
     </swiper>
-    <div class="backToMenu">
-        <router-link to="/">
-            <Button text="Spiel beenden"></Button>
-        </router-link>
-    </div>
     <div class="msg" v-if="msg">
         <span class="text">Spiel beendet. Vier Könige gezogen.</span>
         <div class="btnWrapper">
@@ -130,9 +125,7 @@
                 const slide = swiper.swiper
 
                 this.activeIndex = slide.activeIndex+1
-                console.log(slide.activeIndex)
-                console.log(slide.clickedIndex)
-
+        
                 if(slide.clickedIndex < slide.activeIndex)
                 {
                     this.transformStyle = "" 
@@ -147,11 +140,10 @@
             swiper.addEventListener("touchend" , () => {
                 
                 const slide = swiper.swiper
-                console.log("twst") 
+                
                 if(slide.clickedIndex < slide.activeIndex)
                 {          
-                    slide.allowSlideNext = false 
-                    console.log("locked") 
+                    slide.allowSlideNext = false    
                 }
             })
              
@@ -288,8 +280,8 @@
                             }
                             break;
                     }
-                    
-                    this.isFlipped = false   
+                    this.isFlipped = false;
+                  
                 }
             },
             clearCardActionValue()
@@ -335,7 +327,7 @@
     flex-direction: column;
     position: fixed;
     text-align: center;
-    top: 60px;
+    top: 70px;
     font-size: 20px;
     color:#441d1d;
     background-color: white;
