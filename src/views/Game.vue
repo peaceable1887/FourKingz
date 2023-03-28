@@ -1,9 +1,9 @@
 <template>
-    <Header 
+    <GameHeader 
     @overlay="on()"
     :cards="`${33-activeIndex}`"
     :kings="`${displayCountKing}`">
-    </Header>
+    </GameHeader>
     <swiper
     :effect="'cards'"
     :grabCursor="true"
@@ -26,17 +26,6 @@
             </Card>
         </swiper-slide>      
     </swiper>
-   <!-- <div class="msg" v-if="msg">
-        <span class="text">Spiel beendet. Vier Könige gezogen.</span>
-        <div class="btnWrapper">
-            <router-link to="/">
-                <Button @click="clearCardActionValue()" text="Hauptmenü"></Button>
-            </router-link>
-            <a href="/game">
-                <Button text="Neu Starten"></Button>
-            </a>
-        </div>
-    </div>-->
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="msg">
             <span class="text">Spiel beendet. Vier Könige gezogen.</span>
@@ -54,7 +43,7 @@
             <div class="btnWrapper">
                 <Button class="remain" @click="off()" text="Nein"></Button>
                 <router-link to="/">
-                    <Button class="backToMenu" text="Ja"></Button>
+                    <Button class="backToMenu" @click="clearCardActionValue()" text="Ja"></Button>
                 </router-link>
             </div>
         </div>
@@ -70,7 +59,7 @@
     // import required modules
     import { EffectCards } from 'swiper';
 
-    import Header from "../components/Header.vue";
+    import GameHeader from "../components/GameHeader.vue";
     import Button from "../components/Button.vue";
     import Card from "../components/Card.vue";
     
@@ -84,7 +73,7 @@
         {
             Swiper,
             SwiperSlide,
-            Header,
+            GameHeader,
             Button,
             Card,
         },

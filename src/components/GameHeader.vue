@@ -13,10 +13,10 @@
             Restkarten: <span>{{ cards }}</span>
             Könige: <span>{{ kings }}</span>
         </div>
-        <router-link to="/" class="btnWrapper">
-            <Button></Button>
+       <div class="btnWrapper" @click="$emit('overlay')">
+            <Button ></Button>
             <span>Beenden</span>
-        </router-link>
+       </div>    
     </div>
 </template>
 
