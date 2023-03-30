@@ -26,6 +26,7 @@
             </Card>
         </swiper-slide>      
     </swiper>
+    
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="msg">
             <span class="text">Spiel beendet. Vier Könige gezogen.</span>
@@ -137,18 +138,20 @@
                 const slide = swiper.swiper
 
                 this.activeIndex = slide.activeIndex+1
-        
-                if(slide.clickedIndex < slide.activeIndex)
+
+                if(slide.clickedIndex < slide.activeIndex || slide.slides[slide.clickedIndex].style.zIndex === "31")
                 {
                     this.transformStyle = "" 
                     this.showCardContent = false
                 }
             })
+
         },
         updated()
         {
             const swiper = document.querySelector(".swiper")
 
+            console.log("update")
             swiper.addEventListener("touchend" , () => {
                 
                 const slide = swiper.swiper
