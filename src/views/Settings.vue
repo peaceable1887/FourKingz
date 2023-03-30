@@ -2,21 +2,21 @@
     <h2>Karten selbst belegen</h2>
     <form @submit.prevent="onSubmit">
         <label for="king">König:</label><br>
-        <input type="text" id="king" name="king" v-model="king" required><br><br>
+        <input type="text" id="king" name="king" v-model="king" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="queen">Dame:</label><br>
-        <input type="text" id="queen" name="queen" v-model="queen" required><br><br>
+        <input type="text" id="queen" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="boy">Bube:</label><br>
-        <input type="text" id="boy" name="boy" v-model="boy" required><br><br>
+        <input type="text" id="boy" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="ace">Ass:</label><br>
-        <input type="text" id="ace" name="ace" v-model="ace" required><br><br>
+        <input type="text" id="ace" name="ace" v-model="ace" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="ten">Zehn (10):</label><br>
-        <input type="text" id="ten" name="ten" v-model="ten" required><br><br>
+        <input type="text" id="ten" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="nine">Neun (9):</label><br>
-        <input type="text" id="nine" name="nine" v-model="nine" required><br><br>
+        <input type="text" id="nine" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="eight">Acht (8):</label><br>
-        <input type="text" id="eight" name="eight" v-model="eight" required><br><br>
+        <input type="text" id="eight" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="seven">Sieben (7):</label><br>
-        <input type="text" id="seven" name="seven" v-model="seven" required><br><br>
+        <input type="text" id="seven" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required><br><br>
         <div class="btnWrapper">
             <router-link to="/">
                 <input type="submit" value="Zurück">
@@ -46,6 +46,12 @@
         },
         methods:
         {
+            regexPattern(e) 
+            {
+                let char = String.fromCharCode(e.keyCode);
+                if(/^[A-Za-z0-9\s\\?]+$/.test(char)) return true; 
+                else e.preventDefault(); 
+            },
            
             onSubmit()
             {
@@ -53,14 +59,14 @@
                 if (this.king && this.queen && this.boy && this.ace 
                 && this.ten && this.nine && this.eight && this.seven)  
                 {
-                    localStorage.setItem("king", this.king)
-                    localStorage.setItem("queen", this.queen)
-                    localStorage.setItem("boy", this.boy)
-                    localStorage.setItem("ace", this.ace)
-                    localStorage.setItem("ten", this.ten)
-                    localStorage.setItem("nine", this.nine)
-                    localStorage.setItem("eight", this.eight)
-                    localStorage.setItem("seven", this.seven)
+                    localStorage.setItem("king", this.truncate(this.king))
+                    localStorage.setItem("queen", this.truncate(this.queen))
+                    localStorage.setItem("boy", this.truncate(this.boy))
+                    localStorage.setItem("ace", this.truncate(this.ace))
+                    localStorage.setItem("ten", this.truncate(this.ten))
+                    localStorage.setItem("nine", this.truncate(this.nine))
+                    localStorage.setItem("eight", this.truncate(this.eight))
+                    localStorage.setItem("seven", this.truncate(this.seven))
 
                     this.sucMsg()
                 }
@@ -73,6 +79,12 @@
                 x.className = "show";
                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             },
+
+            truncate(str) 
+            {
+                return (str.length > 31) ?
+                    str.slice(0, 31 - 1) + '…' : str;
+            }
         }
     }
 </script>

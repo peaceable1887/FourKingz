@@ -10,7 +10,7 @@
                         <h2>{{cardName}}</h2>
                     </div>
                     <div class="card_body">
-                        <span>{{cardAction}}</span>
+                        <span class="cardAction">{{cardAction}}</span>
                     </div>
                 </div>
             </div>     
@@ -124,5 +124,10 @@
     text-align: center;
     color: #441d1d;
     height: 160px;
+    padding: 0 15px;
+}
+.cardAction
+{
+    word-break: break-word;
 }
 </style>
