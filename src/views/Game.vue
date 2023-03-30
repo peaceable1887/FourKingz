@@ -26,7 +26,7 @@
             </Card>
         </swiper-slide>      
     </swiper>
-    
+    <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation>
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="msg">
             <span class="text">Spiel beendet. Vier Könige gezogen.</span>
@@ -61,6 +61,7 @@
     import { EffectCards } from 'swiper';
 
     import GameHeader from "../components/GameHeader.vue";
+    import ArrowAnimation from "../components/ArrowAnimation.vue";
     import Button from "../components/Button.vue";
     import Card from "../components/Card.vue";
     
@@ -75,6 +76,7 @@
             Swiper,
             SwiperSlide,
             GameHeader,
+            ArrowAnimation,
             Button,
             Card,
         },
@@ -111,6 +113,7 @@
                 currentValue: 0,
                 showCardContent: false,
                 msg: false,
+                showFlipArrow: true,
                 displayCountKing: "0",
             }
         },
@@ -158,7 +161,8 @@
                 
                 if(slide.clickedIndex < slide.activeIndex)
                 {          
-                    slide.allowSlideNext = false    
+                    slide.allowSlideNext = false
+                    this.showFlipArrow = true    
                 }
             })
              
@@ -181,6 +185,7 @@
                 const swiper = document.querySelector(".swiper").swiper
                 swiper.allowSlideNext = true
                 this.isFlipped = true
+                this.showFlipArrow = false
 
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {
@@ -229,9 +234,10 @@
                                     this.msg = true;   
                                     if(this.msg)
                                     {
+                                        swiper.allowSlideNext = false
                                         setTimeout(() => {
                                             this.on();
-                                        }, 2000);
+                                        }, 1500);
                                     }       
                                 }
                             break;
