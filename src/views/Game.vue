@@ -20,7 +20,7 @@
             @flip-card="isActive ? flipped() : null" 
             :cardName="`${cardsName}`"
             :cardAction="`${cardsAction}`"
-            :style="[isActive ? `${this.transformStyle}` : '' ]"
+            :style="[isActive ? `${this.transformStyle}` : '']"
             :class="{card_inner: card_inner, isFlipped: isFlipped}"
             >
             </Card>
@@ -122,54 +122,50 @@
         {
             const swiper = document.querySelector(".swiper")
             
-            swiper.addEventListener("mousemove" , () => {
-                
-                const slide = swiper.swiper
-
-                this.activeIndex = slide.activeIndex+1
-
-                if(slide.clickedIndex < slide.activeIndex)
-                {
-                    this.transformStyle = "" 
-                    this.showCardContent = false
-                }
-                     
-            })
-
-            swiper.addEventListener("touchmove" , () => {
-                
-                const slide = swiper.swiper
-
-                this.activeIndex = slide.activeIndex+1
-
-                if(slide.clickedIndex < slide.activeIndex || slide.slides[slide.clickedIndex].style.zIndex === "31")
-                {
-                    this.transformStyle = "" 
-                    this.showCardContent = false
-                }
-            })
-
+            swiper.addEventListener("mousemove" , this.handleTouchmove)
+            swiper.addEventListener("touchmove" , this.handleTouchmove)    
         },
         updated()
         {
             const swiper = document.querySelector(".swiper")
 
-            console.log("update")
-            swiper.addEventListener("touchend" , () => {
-                
-                const slide = swiper.swiper
-                
-                if(slide.clickedIndex < slide.activeIndex)
-                {          
-                    slide.allowSlideNext = false
-                    this.showFlipArrow = true    
-                }
-            })
-             
+            swiper.addEventListener("touchend", this.handleTouchend)   
         },
         /* eslint-disable */
         methods:
         {
+            handleTouchmove()
+            {
+                const swiper = document.querySelector(".swiper")
+                const slide = swiper.swiper
+        
+                this.activeIndex = slide.activeIndex+1
+                
+                if(slide.clickedIndex === undefined)
+                {
+                    slide.clickedIndex = "0"
+                }
+                if(slide.clickedIndex < slide.activeIndex || slide.slides[slide.clickedIndex].style.zIndex === "31")
+                {
+                    this.transformStyle = "" 
+                    this.showCardContent = false
+                    slide.allowTouchMove = false
+                }
+            },
+
+            handleTouchend()
+            {
+                const swiper = document.querySelector(".swiper")
+                const slide = swiper.swiper
+         
+                if(slide.clickedIndex < slide.activeIndex)
+                {          
+                    slide.allowSlideNext = false
+                    this.showFlipArrow = true
+                    slide.allowTouchMove = true   
+                }
+            },
+
             chooseCardActionValue(cardAction, localStorageValue)
             {
                 if(localStorageValue === "" || localStorageValue === null )
