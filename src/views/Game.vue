@@ -32,7 +32,7 @@
             <span class="text">Spiel beendet. Vier Könige gezogen.</span>
             <div class="btnWrapper">
                 <a href="/game">
-                    <Button class="remain" text="Neu Starten"></Button>
+                    <Button class="remain" text="Neu starten"></Button>
                 </a><br>
                 <router-link to="/">
                     <Button class="backToMenu" @click="clearCardActionValue()" text="Hauptmenü"></Button>

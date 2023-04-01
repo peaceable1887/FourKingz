@@ -1,14 +1,14 @@
 <template>
     <h2>Karten selbst belegen</h2>
     <form @submit.prevent="onSubmit">
+        <label for="ace">Ass:</label><br>
+        <input type="text" id="ace" name="ace" v-model="ace" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="king">König:</label><br>
         <input type="text" id="king" name="king" v-model="king" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="queen">Dame:</label><br>
         <input type="text" id="queen" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="boy">Bube:</label><br>
         <input type="text" id="boy" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="ace">Ass:</label><br>
-        <input type="text" id="ace" name="ace" v-model="ace" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="ten">Zehn (10):</label><br>
         <input type="text" id="ten" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required><br><br>
         <label for="nine">Neun (9):</label><br>
@@ -24,7 +24,6 @@
             <input type="submit" value="Speichern">
         </div>   
     </form>
-    <div id="snackbar">Erfolgreich gespeichert</div>
 </template>
 
 <script>
@@ -34,14 +33,15 @@
         data()
         {
             return{
-                king: null,
-                queen: null,
-                boy: null,
-                ace: null,
-                ten: null,
-                nine: null,
-                eight: null,
-                seven: null,
+                king: "Du musst Trinken.",
+                queen: "Alle Frauen müssen trinken!",
+                boy: "Alle Männer müssen trinken!",
+                ace: "Jeder muss trinken!",
+                ten: "Wähle eine Wortgruppe",
+                nine: "Klopfen!",
+                eight: "Ich packe meinen Koffer",
+                seven: "Schimpfwort",
+                snackbar: false,
             }
         },
         methods:
@@ -49,7 +49,7 @@
             regexPattern(e) 
             {
                 let char = String.fromCharCode(e.keyCode);
-                if(/^[A-Za-z0-9\s\\?]+$/.test(char)) return true; 
+                if(/^[A-Za-z0-9\s\\?\\.\\!]+$/.test(char)) return true; 
                 else e.preventDefault(); 
             },
            
@@ -68,22 +68,17 @@
                     localStorage.setItem("eight", this.truncate(this.eight))
                     localStorage.setItem("seven", this.truncate(this.seven))
 
-                    this.sucMsg()
+                    this.snackbar = true
+                    localStorage.setItem("snackbar", this.snackbar)
+                    window.location.href = '/';
                 }
                 
             },
-            
-            sucMsg()
-            {
-                let x = document.getElementById("snackbar");
-                x.className = "show";
-                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-            },
-
+        
             truncate(str) 
             {
-                return (str.length > 31) ?
-                    str.slice(0, 31 - 1) + '…' : str;
+                return (str.length > 61) ?
+                    str.slice(0, 61 - 1) + '…' : str;
             }
         }
     }
@@ -153,21 +148,7 @@ input[type=submit]:hover
     color: red;
  
 }
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #441d1d;
-  color: #ccc661;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
-  font-size: 17px;
-}
+
 @media screen and (orientation: landscape) {
     h2 
     {
@@ -190,29 +171,5 @@ input[type=submit]:hover
     }
 }
 
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
 
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
-}
 </style>
