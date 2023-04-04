@@ -17,35 +17,36 @@
 <style lang="scss" scoped>
 .arrowWrapper
 {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column;
 }
 .arrowText
 {
-    position: fixed;
-    bottom: 7%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
     color: #441d1d;
     font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.arrow {
-    position: fixed;
-    bottom: 15%;
+.arrow 
+{
     transform: translate(-50%, -50%);
     transform: rotate(180deg);
+    margin: 0 auto;
 }
 
-.arrow span {
+.arrow span 
+{
     display: block;
-    width: 4vw;
-    height: 4vw;
+    width: 25px;
+    height: 25px;
     border-bottom: 5px solid #441d1d;
     border-right: 5px solid #441d1d;
     transform: rotate(45deg);
-    margin: -10px;
     animation: animate 2s infinite;
 }
 
@@ -60,7 +61,7 @@
 @keyframes animate {
     0% {
         opacity: 0;
-        transform: rotate(45deg) translate(-20px, -20px);
+        transform: rotate(45deg) translate(-10px, -10px);
     }
     50% {
         opacity: 1;

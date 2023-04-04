@@ -1,29 +1,73 @@
 <template>
-    <h2>Karten selbst belegen</h2>
-    <form @submit.prevent="onSubmit">
-        <label for="ace">Ass:</label><br>
-        <input type="text" id="ace" name="ace" v-model="ace" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="king">König:</label><br>
-        <input type="text" id="king" name="king" v-model="king" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="queen">Dame:</label><br>
-        <input type="text" id="queen" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="boy">Bube:</label><br>
-        <input type="text" id="boy" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="ten">Zehn (10):</label><br>
-        <input type="text" id="ten" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="nine">Neun (9):</label><br>
-        <input type="text" id="nine" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="eight">Acht (8):</label><br>
-        <input type="text" id="eight" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required><br><br>
-        <label for="seven">Sieben (7):</label><br>
-        <input type="text" id="seven" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required><br><br>
-        <div class="btnWrapper">
-            <router-link to="/">
-                <input type="submit" value="Zurück">
-            </router-link>
-            <input type="submit" value="Speichern">
-        </div>   
-    </form>
+    <nav class="navbar navbar-expand mb-3">
+        <div class="container">
+            <span class="mx-auto">Karten selbst belegen</span>
+        </div>
+    </nav>
+    <div class="container">
+        <form @submit.prevent="onSubmit" novalidate>
+            <div class="form-floating mb-3">
+                <input type="text" id="ace" class="form-control form-control-sm" name="ace" placeholder="Ass" v-model="ace" v-on:keypress="regexPattern($event)" required>
+                <label for="ace" class="form-label">Ass:</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="king" class="form-control form-control-sm" name="king" v-model="king" v-on:keypress="regexPattern($event)" required>
+                <label for="king" class="form-label">König:</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="queen" class="form-control form-control-sm" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required>
+                <label for="queen" class="form-label">Dame:</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="boy" class="form-control form-control-sm" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required>
+                <label for="boy" class="form-label">Bube:</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="ten" class="form-control form-control-sm" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required>
+                <label for="ten" class="form-label">Zehn (10):</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="nine" class="form-control form-control-sm" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required>
+                <label for="nine" class="form-label">Neun (9):</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="eight" class="form-control form-control-sm" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required>
+                <label for="eight" class="form-label">Acht (8):</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" id="seven" class="form-control form-control-sm" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required>
+                <label for="seven" class="form-label">Sieben (7):</label>
+                <div class="invalid-feedback">Inavlid Email</div>
+                <div class="valid-feedback">Correct Email</div>
+            </div>
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col">
+                        <router-link to="/">
+                            <input class="btn" type="submit" value="Zurück">
+                        </router-link>
+                    </div>
+                    <div class="col">
+                        <input class="btn" type="submit" value="Speichern">
+                    </div>
+                </div>
+            </div>   
+        </form>
+    </div>
 </template>
 
 <script>
@@ -44,6 +88,19 @@
                 snackbar: false,
             }
         },
+        mounted()
+        {
+            const form = document.querySelector("form")
+
+            form.addEventListener("submit", e => {
+                if(!form.checkValidity())
+                {
+                    e.preventDefault()
+                }
+
+                form.classList.add("was-validated")
+            })
+        },
         methods:
         {
             regexPattern(e) 
@@ -55,7 +112,7 @@
            
             onSubmit()
             {
-
+               
                 if (this.king && this.queen && this.boy && this.ace 
                 && this.ten && this.nine && this.eight && this.seven)  
                 {
@@ -85,91 +142,21 @@
 </script>
 
 <style lang="scss" scoped>
-h2
+
+.navbar
 {
-    font-family: Impact, Regular;
     background-color: #ccc661;
     color: #441d1d;
-    position: fixed;
-    top:0;
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
 }
-form
+.container
+{
+    touch-action:pan-y;
+}
+.btn
 {
     width: 100%;
-    margin: 15px 0 0 0;
-}
-label
-{
-    color: #441d1d;
-    font-size: 18px;
-}
-.btnWrapper
-{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-input
-{
-    width: 98%;
-    height: 20px;
-}
-input[type=submit]
-{
-    margin: 5px 0 0 0 ;
-    width: 150px;
-    height: 40px;
-    background-color: #ccc661;
-    color: #441d1d;
-    border: none;
-    font-family: Impact, Regular;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    cursor: pointer;
-    padding: 6px 25px;
-    font-size: 20px;
-    border-radius: 10px;
-}
-input[type=submit]:hover
-{
     background-color: #441d1d;
     color: #ccc661;
 }
-.errMsg
-{
-    color: red;
- 
-}
-
-@media screen and (orientation: landscape) {
-    h2 
-    {
-        background-color: white;
-     
-        color: #441d1d;
-        position: absolute;
-        top: 30px;
-        box-shadow: none;
-        font-size: 26px;
-    }
-    form
-    {
-        height: 50%;
-    }
-    .btnWrapper
-    {
-        justify-content: space-around;
-        padding: 20px;
-    }
-}
-
 
 </style>

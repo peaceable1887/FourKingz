@@ -1,23 +1,16 @@
 <template>
-    <table v-if="portait">
-        <tr>
-            <th>
-                <Button @click="$emit('overlay')"></Button>
-            </th>
-            <th>Restkarten: <span>{{ cards }}</span></th>
-            <th>Könige: <span>{{ kings }}</span></th>
-        </tr>
-    </table>
-    <div class="landscapeContent" v-if="!portait">
-        <div class="cardCount">
-            Restkarten: <span>{{ cards }}</span>
-            Könige: <span>{{ kings }}</span>
-        </div>
-       <div class="btnWrapper" @click="$emit('overlay')">
-            <Button ></Button>
-            <span>Beenden</span>
-       </div>    
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><Button @click="$emit('overlay')"></Button></th>
+                    <th>Restkarten: <span>{{ cards }}</span></th>
+                    <th>Könige: <span>{{ kings }}</span></th>
+                </tr>
+            </thead>
+        </table>
     </div>
+  
 </template>
 
 <script>
@@ -73,22 +66,22 @@ import Button from "../components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
+.box
+{
+    background-color: #ccc661;
+}
 table
 {
-    font-family: Impact, Regular;
     background-color: #ccc661;
     color: #441d1d;
-    position: fixed;
-    top:0;
     width: 100%;
-    margin: 0;
-    padding: 10px;
-    font-size: 20px;
-    box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.75);
 }
-
+th
+{
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+}
 span
 {
     color: black;
@@ -100,57 +93,8 @@ Button
     height: 30px;  
     width: 30px;
     border: none;
-    margin: auto;
+    margin: 5px auto auto auto;
 }
 
-.landscapeContent
-{
-    position: fixed;
-    left: 30px;
-    bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 80%;
-    font-size: 20px;
-}
-.landscapeContent .btnWrapper
-{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-decoration: none;
-    color:#441d1d;
-    align-items: center;
-}
-.cardCount
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #441d1d;
-}
-.cardCount span
-{
-    padding: 20px 0;
-}
-.landscapeContent .btnWrapper Button
-{
-    background-size: 50px 50px;
-    height: 50px;  
-    width: 50px;
-}
-.landscapeContent .btnWrapper span
-{
-    color:#441d1d;
-    font-size: 18px;
-}
-@media screen and (orientation: landscape) {
-    table 
-    {
-        position: fixed;
-        z-index: 10;
-    }
-}
 
 </style>

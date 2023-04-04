@@ -1,32 +1,40 @@
-<template>
-    <GameHeader 
+<template>  
+    <GameHeader class="mx-auto"
     @overlay="on()"
     :cards="`${32-activeIndex}`"
     :kings="`${displayCountKing}`">
     </GameHeader>
-    <swiper
-    :effect="'cards'"
-    :grabCursor="true"
-    :touchStartPreventDefault="false"
-    :allowSlidePrev="false"
-    :allowSlideNext="false"
-    :shortSwipes="false"
-    :longSwipesMs="0"
-    :modules="modules"
-    class="mySwiper"
-    >
-        <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}" >
-            <Card
-            @flip-card="isActive ? flipped() : null" 
-            :cardName="`${cardsName}`"
-            :cardAction="`${cardsAction}`"
-            :style="[isActive ? `${this.transformStyle}` : '']"
-            :class="{card_inner: card_inner, isFlipped: isFlipped}"
-            >
-            </Card>
-        </swiper-slide>      
-    </swiper>
-    <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation>
+    <div class="container">
+        <div class="row row-cols-1">
+            <div class="col mb-5">
+                <swiper
+                :effect="'cards'"
+                :grabCursor="true"
+                :touchStartPreventDefault="false"
+                :allowSlidePrev="false"
+                :allowSlideNext="false"
+                :shortSwipes="false"
+                :longSwipesMs="0"
+                :modules="modules"
+                class="mySwiper"
+                >
+                    <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}" >
+                        <Card
+                        @flip-card="isActive ? flipped() : null" 
+                        :cardName="`${cardsName}`"
+                        :cardAction="`${cardsAction}`"
+                        :style="[isActive ? `${this.transformStyle}` : '']"
+                        :class="{card_inner: card_inner, isFlipped: isFlipped}"
+                        >
+                        </Card>
+                    </swiper-slide>      
+                </swiper>
+            </div>
+            <div class="col">
+                <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation>
+            </div>
+        </div>
+    </div>
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="msg">
             <span class="text">Spiel beendet. Vier Könige gezogen.</span>
@@ -49,6 +57,9 @@
             </div>
         </div>
     </div>
+  
+    
+    
   </template>
 
   <script>
@@ -351,12 +362,18 @@
   </script>
 
 <style scoped>
+.container
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 80vh;
+   touch-action: none;
+}
 .swiper 
 {
   width: 240px;
   height: 320px;
-  position: fixed;
-
 }
 .swiper-slide 
 {
@@ -385,6 +402,7 @@
     background-color: rgba(0,0,0,0.5);
     z-index: 2;
     cursor: pointer;
+    touch-action: none;
 }
 
 #overlayContent
@@ -421,7 +439,4 @@ Button
     color:#ccc661;
     background-color: #441d1d;
 }
-
-
-
 </style>

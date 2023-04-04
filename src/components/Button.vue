@@ -16,14 +16,11 @@
 <style scoped>
 button
 {
-    margin: 0;
     background-color: #ccc661;
     color: #441d1d;
     border: none;
-    font-family: Impact, Regular;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
 }
 button:hover
 {

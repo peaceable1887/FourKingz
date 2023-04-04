@@ -2,19 +2,19 @@
     <div
         @click="$emit('flip-card')" 
         >
-            <div class="card_face card_face--front">
-            </div>
-            <div class="card_face card_face--back">
-                <div class="card content" >
-                    <div class="card_header">
-                        <h2>{{cardName}}</h2>
-                    </div>
-                    <div class="card_body">
-                        <span class="cardAction">{{cardAction}}</span>
-                    </div>
-                </div>
-            </div>     
+        <div class="card_face card_face--front">
         </div>
+        <div class="card_face card_face--back">
+            <div class="card content" >
+                <div class="card_header">
+                    <h2>{{cardName}}</h2>
+                </div>
+                <div class="card_body">
+                    <span class="cardAction">{{cardAction}}</span>
+                </div>
+            </div>
+        </div>     
+    </div>
 </template>
 
 <script>
