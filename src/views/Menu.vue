@@ -31,12 +31,8 @@ export default
     {
         if(JSON.parse(localStorage.getItem("snackbar")) === true)
         {
-            localStorage.setItem("snackbar", this.snackbar) 
             this.sucMsg()
-            
-        }else
-        {
-            console.log("test")
+            localStorage.setItem("snackbar", this.snackbar) 
         }
     },
     methods:
@@ -112,7 +108,8 @@ img
     margin-left: auto;
     margin-right: auto;
     bottom: 30px;
-    font-size: 17px;
+    font-size: 18px;
+    border-radius: 10px;
 }
 #snackbar.show {
   visibility: visible;

@@ -1,7 +1,7 @@
 <template>
     <GameHeader 
     @overlay="on()"
-    :cards="`${33-activeIndex}`"
+    :cards="`${32-activeIndex}`"
     :kings="`${displayCountKing}`">
     </GameHeader>
     <swiper
@@ -15,7 +15,7 @@
     :modules="modules"
     class="mySwiper"
     >
-        <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}">
+        <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}" >
             <Card
             @flip-card="isActive ? flipped() : null" 
             :cardName="`${cardsName}`"
@@ -106,7 +106,7 @@
                 cardsName: "",
                 cardsAction: "",
                 transformStyle: "",
-                activeIndex: 1,
+                activeIndex: null,
                 activeI: "",
                 imageUrl: "",
                 cardImg: "",
@@ -129,7 +129,8 @@
         {
             const swiper = document.querySelector(".swiper")
 
-            swiper.addEventListener("touchend", this.handleTouchend)   
+            swiper.addEventListener("touchend", this.handleTouchend)
+         
         },
         /* eslint-disable */
         methods:
@@ -137,32 +138,48 @@
             handleTouchmove()
             {
                 const swiper = document.querySelector(".swiper")
+    
                 const slide = swiper.swiper
+                console.log("Active Index: " + slide.activeIndex)
+                console.log("clickedIndex: " + slide.clickedIndex)
         
-                this.activeIndex = slide.activeIndex+1
-                
+                //falls die nutzer versehentlich auf die verdeckten karten auf der rechte seite klickt
+                if(slide.clickedIndex > slide.activeIndex)
+                {
+                    slide.clickedIndex = slide.activeIndex;
+                }
                 if(slide.clickedIndex === undefined)
                 {
                     slide.clickedIndex = "0"
                 }
-                if(slide.clickedIndex < slide.activeIndex || slide.slides[slide.clickedIndex].style.zIndex === "31")
+                if(slide.activeIndex%slide.clickedIndex == 1 || isNaN(slide.activeIndex%slide.clickedIndex) || (slide.activeIndex === "2" && slide.clickedIndex === "1"))
+                {
+                    slide.clickedIndex = slide.activeIndex
+                    console.log("modulo")
+                }
+                if(slide.slides[slide.clickedIndex].style.zIndex === "31" && slide.activeIndex === slide.clickedIndex) 
                 {
                     this.transformStyle = "" 
                     this.showCardContent = false
                     slide.allowTouchMove = false
+                    console.log(slide.slides[slide.clickedIndex].style.zIndex)
+                    
                 }
+               
             },
 
             handleTouchend()
             {
                 const swiper = document.querySelector(".swiper")
                 const slide = swiper.swiper
-         
+            
                 if(slide.clickedIndex < slide.activeIndex)
                 {          
                     slide.allowSlideNext = false
-                    this.showFlipArrow = true
-                    slide.allowTouchMove = true   
+                    slide.allowTouchMove = true
+                    this.activeIndex = slide.activeIndex
+                    slide.slides[slide.clickedIndex].style.visibility = "hidden"
+                    console.log("geht rein")
                 }
             },
 
@@ -179,15 +196,17 @@
             flipped()
             {  
                 const swiper = document.querySelector(".swiper").swiper
-                swiper.allowSlideNext = true
+                console.log("flipped")
+                
                 this.isFlipped = true
                 this.showFlipArrow = false
+                swiper.allowSlideNext = true
 
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {
                     this.transformStyle = "transform: rotateY(180deg);" 
                     let rndNumber = Math.floor(Math.random() * 8+1);
-                     
+                 
                     switch(rndNumber)
                     {
                         case 1:          
