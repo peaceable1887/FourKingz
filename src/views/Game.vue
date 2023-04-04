@@ -211,7 +211,9 @@
                 
                 this.isFlipped = true
                 this.showFlipArrow = false
+                //muss noch rausgenommen werden!
                 swiper.allowSlideNext = true
+                swiper.allowTouchMove = true
 
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {

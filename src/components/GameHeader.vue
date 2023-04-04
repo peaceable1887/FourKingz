@@ -66,9 +66,9 @@ import Button from "../components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
-.box
+.table-responsive
 {
-    background-color: #ccc661;
+    touch-action: none;
 }
 table
 {
@@ -88,7 +88,7 @@ span
 }
 Button
 {
-    background: url("../assets/iconmonstr-door-6-240.png");
+    background: url("../assets/iconmonstr-door-6-240.png") no-repeat;
     background-size: 30px 30px;
     height: 30px;  
     width: 30px;

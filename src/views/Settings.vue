@@ -9,50 +9,50 @@
             <div class="form-floating mb-3">
                 <input type="text" id="ace" class="form-control form-control-sm" name="ace" placeholder="Ass" v-model="ace" v-on:keypress="regexPattern($event)" required>
                 <label for="ace" class="form-label">Ass:</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="king" class="form-control form-control-sm" name="king" v-model="king" v-on:keypress="regexPattern($event)" required>
                 <label for="king" class="form-label">König:</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="queen" class="form-control form-control-sm" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required>
                 <label for="queen" class="form-label">Dame:</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="boy" class="form-control form-control-sm" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required>
                 <label for="boy" class="form-label">Bube:</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="ten" class="form-control form-control-sm" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required>
                 <label for="ten" class="form-label">Zehn (10):</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="nine" class="form-control form-control-sm" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required>
                 <label for="nine" class="form-label">Neun (9):</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="eight" class="form-control form-control-sm" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required>
                 <label for="eight" class="form-label">Acht (8):</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" id="seven" class="form-control form-control-sm" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required>
                 <label for="seven" class="form-label">Sieben (7):</label>
-                <div class="invalid-feedback">Inavlid Email</div>
-                <div class="valid-feedback">Correct Email</div>
+                <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
+                <div class="valid-feedback"></div>
             </div>
             <div class="container mb-3">
                 <div class="row">
