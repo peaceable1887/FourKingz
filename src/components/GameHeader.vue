@@ -1,28 +1,24 @@
 <template>
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th><Button @click="$emit('overlay')"></Button></th>
-                    <th>Restkarten: <span>{{ cards }}</span></th>
-                    <th>Könige: <span>{{ kings }}</span></th>
-                </tr>
-            </thead>
-        </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="box">
+                    Restkarten<br><span>{{ cards }}</span>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="box">
+                    Könige<br><span>{{ kings }}</span>
+                </div>
+            </div>
+        </div>
     </div>
-  
 </template>
 
 <script>
-import Button from "../components/Button.vue";
     export default 
     {
-        name: "item-header",
-        emits:["overlay"],
-        components:
-        {
-            Button,
-        },
+        name: "item-gameHeader",
         props:
         {
             cards: String,
@@ -66,35 +62,25 @@ import Button from "../components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
-.table-responsive
+.row
 {
-    touch-action: none;
+    justify-content: center;
+    margin-top: 70px;  
 }
-table
+.box
 {
-    background-color: #ccc661;
-    color: #441d1d;
-    width: 100%;
-}
-th
-{
-    font-size: 18px;
+    background-color: #222847;
+    color: #ed9623;
+    font-weight: bold;
+    padding: 20px 0;
     text-align: center;
-    vertical-align: middle;
+    border-radius: 10px;
+    font-size: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 span
 {
-    color: black;
+    color: white;
+    font-size: 24px;
 }
-Button
-{
-    background: url("../assets/iconmonstr-door-6-240.png") no-repeat;
-    background-size: 30px 30px;
-    height: 30px;  
-    width: 30px;
-    border: none;
-    margin: 5px auto auto auto;
-}
-
-
 </style>

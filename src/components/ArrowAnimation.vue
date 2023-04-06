@@ -17,7 +17,6 @@
 <style lang="scss" scoped>
 .arrowWrapper
 {
-    position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -27,10 +26,10 @@
 }
 .arrowText
 {
-    color: #441d1d;
+    color: #222847;
     font-size: 18px;
     text-align: center;
-    margin-bottom: 20px;
+    font-weight: bold;
 }
 .arrow 
 {
@@ -44,8 +43,8 @@
     display: block;
     width: 25px;
     height: 25px;
-    border-bottom: 5px solid #441d1d;
-    border-right: 5px solid #441d1d;
+    border-bottom: 5px solid #222847;
+    border-right: 5px solid #222847;
     transform: rotate(45deg);
     animation: animate 2s infinite;
 }

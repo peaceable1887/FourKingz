@@ -27,6 +27,8 @@ html,
 body 
 {
   overscroll-behavior-x: none;
+  background-image: linear-gradient(45deg, #a8511e, #ed9623);
+  height: 100vh;
 }
 
 </style>

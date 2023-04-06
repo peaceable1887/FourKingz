@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="row row-cols-1 g-4">
-            <div class="col mb-5">
-                <img class="rounded mx-auto d-block" src="../assets/transparent_logo.png">
+            <div class="col mb-4">
+                <img class="rounded mx-auto d-block" src="../assets/logo_fourKingz2.png">
             </div>
             <div class="col">
                 <router-link to="/game">
@@ -67,9 +67,21 @@ export default
     touch-action: none;
     height: 100vh;
 }
+.col
+{
+    display: flex;
+    justify-content: center;
+
+}
+Button
+{
+    width: 250px;
+    font-size: 18px;
+    font-weight: bold;
+}
 img
 {
-    height: 200px;
+    height: 300px;
 }
 Button
 {

@@ -1,12 +1,14 @@
-<template>  
-    <GameHeader class="mx-auto"
-    @overlay="on()"
-    :cards="`${32-activeIndex}`"
-    :kings="`${displayCountKing}`">
-    </GameHeader>
+<template>
     <div class="container">
+        <Header @overlay="on()" text="Spiel"></Header>
         <div class="row row-cols-1">
-            <div class="col mb-5">
+            <div class="col">
+                <GameHeader class=""
+                :cards="`${32-activeIndex}`"
+                :kings="`${displayCountKing}`">
+                </GameHeader>  
+            </div>
+            <div class="col">
                 <swiper
                 :effect="'cards'"
                 :grabCursor="true"
@@ -31,7 +33,7 @@
                 </swiper>
             </div>
             <div class="col">
-                <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation>
+                <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation> 
             </div>
         </div>
     </div>
@@ -71,6 +73,7 @@
     // import required modules
     import { EffectCards } from 'swiper';
 
+    import Header from "../components/Header.vue";
     import GameHeader from "../components/GameHeader.vue";
     import ArrowAnimation from "../components/ArrowAnimation.vue";
     import Button from "../components/Button.vue";
@@ -86,6 +89,7 @@
         {
             Swiper,
             SwiperSlide,
+            Header,
             GameHeader,
             ArrowAnimation,
             Button,
@@ -366,11 +370,13 @@
 <style scoped>
 .container
 {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 80vh;
-   touch-action: none;
+    touch-action: none;
+    margin: 0;
+    padding: 0;
+}
+.row
+{
+    height: 100vh;
 }
 .swiper 
 {

@@ -3,6 +3,7 @@
         @click="$emit('flip-card')" 
         >
         <div class="card_face card_face--front">
+            <img src="../assets/logo_fourKingz2.png">
         </div>
         <div class="card_face card_face--back">
             <div class="card content" >
@@ -38,6 +39,8 @@
     display: flex;
     flex-direction: column;
     perspective: 1000px;
+    border: none;
+ 
 }
 
 .card_inner
@@ -65,12 +68,16 @@
 .card_face--front
 {
     /*background-image: linear-gradient(to bottom right, rgb(255, 217, 0), red);*/
-    background-image: url("../assets/front_card_img - Four Kingz.jpg");
+    /*background-image: url("../assets/logo_fourKingz2.png");*/
+    background-color: #222847;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+img
+{
+    height: 200px;
+}
 .card_face--front h2
 {
     color: white;
@@ -125,6 +132,7 @@
     color: #441d1d;
     height: 160px;
     padding: 0 15px;
+    background-color: #ccc661;
 }
 .cardAction
 {
