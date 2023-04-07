@@ -23,6 +23,8 @@
     right: 0;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 2%;
 }
 .arrowText
 {

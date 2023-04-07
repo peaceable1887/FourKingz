@@ -1,65 +1,59 @@
 <template>
-    <nav class="navbar navbar-expand mb-3">
-        <div class="container">
-            <span class="mx-auto">Karten selbst belegen</span>
-        </div>
-    </nav>
+    <Header class="settings" @atClickArrow="backToMenu()" text="Einstellungen"></Header>
     <div class="container">
         <form @submit.prevent="onSubmit" novalidate>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="ace" class="form-control form-control-sm" name="ace" placeholder="Ass" v-model="ace" v-on:keypress="regexPattern($event)" required>
                 <label for="ace" class="form-label">Ass:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="king" class="form-control form-control-sm" name="king" v-model="king" v-on:keypress="regexPattern($event)" required>
                 <label for="king" class="form-label">König:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="queen" class="form-control form-control-sm" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required>
                 <label for="queen" class="form-label">Dame:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="boy" class="form-control form-control-sm" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required>
                 <label for="boy" class="form-label">Bube:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="ten" class="form-control form-control-sm" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required>
                 <label for="ten" class="form-label">Zehn (10):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="nine" class="form-control form-control-sm" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required>
                 <label for="nine" class="form-label">Neun (9):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="eight" class="form-control form-control-sm" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required>
                 <label for="eight" class="form-label">Acht (8):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating">
                 <input type="text" id="seven" class="form-control form-control-sm" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required>
                 <label for="seven" class="form-label">Sieben (7):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="container mb-3">
+            <div class="container">
                 <div class="row">
                     <div class="col">
-                        <router-link to="/">
-                            <input class="btn" type="submit" value="Zurück">
-                        </router-link>
+                        <input class="btn" value="Zurücksetzen">
                     </div>
                     <div class="col">
                         <input class="btn" type="submit" value="Speichern">
@@ -71,9 +65,15 @@
 </template>
 
 <script>
+import Header from "../components/Header.vue";
+
     export default 
     {
         name: "item-settings",
+        components:
+        {
+            Header,
+        },  
         data()
         {
             return{
@@ -103,13 +103,16 @@
         },
         methods:
         {
+            backToMenu()
+            {
+                this.$router.push("/")
+            },          
             regexPattern(e) 
             {
                 let char = String.fromCharCode(e.keyCode);
                 if(/^[A-Za-z0-9\s\\?\\.\\!]+$/.test(char)) return true; 
                 else e.preventDefault(); 
             },
-           
             onSubmit()
             {
                
@@ -131,7 +134,6 @@
                 }
                 
             },
-        
             truncate(str) 
             {
                 return (str.length > 61) ?
@@ -142,21 +144,29 @@
 </script>
 
 <style lang="scss" scoped>
-
-.navbar
+.settings
 {
-    background-color: #ccc661;
-    color: #441d1d;
+    padding: 0;
 }
 .container
 {
     touch-action:pan-y;
 }
+.form-floating
+{
+    margin:  0 12px 15px 12px;
+}
+.invalid-feedback
+{
+    color: #222847;
+}
 .btn
 {
+    font-weight: bold;
     width: 100%;
-    background-color: #441d1d;
-    color: #ccc661;
+    background-color: #222847;
+    color: #ed9623;
+    margin: 15px 0 30px 0;
 }
 
 </style>

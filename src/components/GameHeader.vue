@@ -65,7 +65,7 @@
 .row
 {
     justify-content: center;
-    margin-top: 70px;  
+    margin-top: 15px;  
 }
 .box
 {

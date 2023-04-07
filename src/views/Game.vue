@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <Header @overlay="on()" text="Spiel"></Header>
-        <div class="row row-cols-1">
+        <Header @atClickArrow="on()" text="Spiel"></Header>
+        <div class="row">
             <div class="col">
                 <GameHeader class=""
                 :cards="`${32-activeIndex}`"
@@ -43,7 +43,7 @@
             <div class="btnWrapper">
                 <a href="/game">
                     <Button class="remain" text="Neu starten"></Button>
-                </a><br>
+                </a>
                 <router-link to="/">
                     <Button class="backToMenu" @click="clearCardActionValue()" text="Hauptmenü"></Button>
                 </router-link>
@@ -371,30 +371,30 @@
 .container
 {
     touch-action: none;
-    margin: 0;
     padding: 0;
 }
 .row
 {
     height: 100vh;
+    flex-direction: column;
 }
 .swiper 
 {
-  width: 240px;
-  height: 320px;
+    width: 240px;
+    height: 320px;
 }
 .swiper-slide 
 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 #overlay 
@@ -422,8 +422,8 @@
     font-size: 26px;
     width: 250px;
     text-align: center;
-    color: #441d1d;
-    background-color: white;
+    color: #222847;
+    background-color: #ed9623;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -440,11 +440,10 @@
 Button
 {
     padding: 10px;
-    width: 200px;
-    font-size: 24px;
+    width: 180px;
+    font-size: 22px;
     border-radius: 10px;
     margin: 10px;
-    color:#ccc661;
-    background-color: #441d1d;
+    font-weight: bold;
 }
 </style>

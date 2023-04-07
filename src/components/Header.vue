@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="box">
-                    <Button @click="$emit('overlay')"></Button>
+                    <Button @click="$emit('atClickArrow')"></Button>
                 </div>
             </div>
             <div class="col">
@@ -26,7 +26,7 @@ import Button from "../components/Button.vue";
     export default 
     {
         name: "item-header",
-        emits:["overlay"],
+        emits:["atClickArrow"],
         components:
         {
             Button,
@@ -39,11 +39,6 @@ import Button from "../components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
-.container
-{
-    position: absolute;
-    padding: 15px 0;
-}
 .row
 {
     padding: 15px 15px;

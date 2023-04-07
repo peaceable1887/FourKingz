@@ -91,8 +91,8 @@ Button
 {
     visibility: hidden;
     min-width: 250px;
-    background-color: #441d1d;
-    color: #ccc661;
+    background-color:#222847;
+    color: #ed9623;
     text-align: center;
     border-radius: 2px;
     padding: 16px;
