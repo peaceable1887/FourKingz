@@ -64,9 +64,12 @@
 <style lang="scss" scoped>
 .row
 {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: 15px;  
 }
+
 .box
 {
     background-color: #222847;
@@ -76,7 +79,8 @@
     text-align: center;
     border-radius: 10px;
     font-size: 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 span
 {

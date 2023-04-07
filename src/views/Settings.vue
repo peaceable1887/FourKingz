@@ -9,43 +9,43 @@
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="king" class="form-control form-control-sm" name="king" v-model="king" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="king" class="form-control form-control-sm" name="king" placeholder="König" v-model="king" v-on:keypress="regexPattern($event)" required>
                 <label for="king" class="form-label">König:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="queen" class="form-control form-control-sm" name="queen" v-model="queen" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="queen" class="form-control form-control-sm" name="queen" placeholder="Dame" v-model="queen" v-on:keypress="regexPattern($event)" required>
                 <label for="queen" class="form-label">Dame:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="boy" class="form-control form-control-sm" name="boy" v-model="boy" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="boy" class="form-control form-control-sm" name="boy" placeholder="Bube" v-model="boy" v-on:keypress="regexPattern($event)" required>
                 <label for="boy" class="form-label">Bube:</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="ten" class="form-control form-control-sm" name="ten" v-model="ten" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="ten" class="form-control form-control-sm" name="ten" placeholder="Zehn (10)" v-model="ten" v-on:keypress="regexPattern($event)" required>
                 <label for="ten" class="form-label">Zehn (10):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="nine" class="form-control form-control-sm" name="nine" v-model="nine" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="nine" class="form-control form-control-sm" name="nine" placeholder="Neun (9)" v-model="nine" v-on:keypress="regexPattern($event)" required>
                 <label for="nine" class="form-label">Neun (9):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="eight" class="form-control form-control-sm" name="eight" v-model="eight" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="eight" class="form-control form-control-sm" name="eight" placeholder="Acht (8)" v-model="eight" v-on:keypress="regexPattern($event)" required>
                 <label for="eight" class="form-label">Acht (8):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
             <div class="form-floating">
-                <input type="text" id="seven" class="form-control form-control-sm" name="seven" v-model="seven" v-on:keypress="regexPattern($event)" required>
+                <input type="text" id="seven" class="form-control form-control-sm" name="seven" placeholder="Sieben (7)" v-model="seven" v-on:keypress="regexPattern($event)" required>
                 <label for="seven" class="form-label">Sieben (7):</label>
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <input class="btn" value="Zurücksetzen">
+                        <input class="btn" @click="clearCardActionValue()" value="Zurücksetzen">
                     </div>
                     <div class="col">
                         <input class="btn" type="submit" value="Speichern">
@@ -77,14 +77,14 @@ import Header from "../components/Header.vue";
         data()
         {
             return{
-                king: "Du musst Trinken.",
-                queen: "Alle Frauen müssen trinken!",
-                boy: "Alle Männer müssen trinken!",
-                ace: "Jeder muss trinken!",
-                ten: "Wähle eine Wortgruppe",
-                nine: "Klopfen!",
-                eight: "Ich packe meinen Koffer",
-                seven: "Schimpfwort",
+                king: localStorage.getItem("king"),
+                queen: localStorage.getItem("queen"),
+                boy: localStorage.getItem("boy"),
+                ace: localStorage.getItem("ace"),
+                ten: localStorage.getItem("ten"),
+                nine: localStorage.getItem("nine"),
+                eight: localStorage.getItem("eight"),
+                seven: localStorage.getItem("seven"),
                 snackbar: false,
             }
         },
@@ -138,7 +138,15 @@ import Header from "../components/Header.vue";
             {
                 return (str.length > 61) ?
                     str.slice(0, 61 - 1) + '…' : str;
-            }
+            }, 
+            clearCardActionValue()
+            {
+                let keysToRemove = ["king", "queen","boy", "ace","ten", "nine", "eight", "seven"]
+
+                keysToRemove.forEach(key => localStorage.removeItem(key))
+                window.location.href = '/settings';
+            },
+
         }
     }
 </script>
@@ -150,7 +158,8 @@ import Header from "../components/Header.vue";
 }
 .container
 {
-    touch-action:pan-y;
+    -ms-touch-action:pan-y;
+        touch-action:pan-y;
 }
 .form-floating
 {
@@ -168,5 +177,4 @@ import Header from "../components/Header.vue";
     color: #ed9623;
     margin: 15px 0 30px 0;
 }
-
 </style>

@@ -45,7 +45,7 @@
                     <Button class="remain" text="Neu starten"></Button>
                 </a>
                 <router-link to="/">
-                    <Button class="backToMenu" @click="clearCardActionValue()" text="Hauptmenü"></Button>
+                    <Button class="backToMenu" text="Hauptmenü"></Button>
                 </router-link>
             </div>
         </div>
@@ -54,7 +54,7 @@
             <div class="btnWrapper">
                 <Button class="remain" @click="off()" text="Nein"></Button>
                 <router-link to="/">
-                    <Button class="backToMenu" @click="clearCardActionValue()" text="Ja"></Button>
+                    <Button class="backToMenu" text="Ja"></Button>
                 </router-link>
             </div>
         </div>
@@ -344,12 +344,7 @@
                 }
             },
 
-            clearCardActionValue()
-            {
-                let keysToRemove = ["king", "queen","boy", "ace","ten", "nine", "eight", "seven"]
-
-                keysToRemove.forEach(key => localStorage.removeItem(key))
-            },
+           
 
             on()
             {
@@ -370,13 +365,19 @@
 <style scoped>
 .container
 {
-    touch-action: none;
+    -ms-touch-action: none;
+        touch-action: none;
     padding: 0;
+    width: 100vw;
 }
+
 .row
 {
     height: 100vh;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 .swiper 
 {
@@ -385,16 +386,23 @@
 }
 .swiper-slide 
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-radius: 18px;
     font-size: 22px;
     font-weight: bold;
     color: #fff;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -moz-user-select: none;
+         user-select: none; /* Standard syntax */
 }
 
 #overlay 
@@ -410,7 +418,8 @@
     background-color: rgba(0,0,0,0.5);
     z-index: 2;
     cursor: pointer;
-    touch-action: none;
+    -ms-touch-action: none;
+        touch-action: none;
 }
 
 #overlayContent
@@ -421,20 +430,31 @@
     padding: 20px;
     font-size: 26px;
     width: 250px;
+    font-weight: bold;
     text-align: center;
-    color: #222847;
-    background-color: #ed9623;
-    transform: translate(-50%, -50%);
+    color: #ed9623;
+    background-color: #222847;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     border-radius: 10px;
 }
 .btnWrapper
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-top: 30px;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 Button
@@ -445,5 +465,7 @@ Button
     border-radius: 10px;
     margin: 10px;
     font-weight: bold;
+    color: #222847;
+    background-color: #ed9623;
 }
 </style>

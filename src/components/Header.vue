@@ -43,6 +43,7 @@ import Button from "../components/Button.vue";
 {
     padding: 15px 15px;
 }
+
 .box-text
 {
     text-align: center;

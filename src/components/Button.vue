@@ -16,7 +16,7 @@
 <style scoped>
 button
 {
-    background-image: linear-gradient(92.88deg, #222847 9.16%, #222847 43.89%, #222847 64.72%);
+    background-color:#222847;
     border-radius: 10px;
     color: #ed9623;
     border: none;
