@@ -66,7 +66,7 @@
 {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin-top: 15px;  
 }
 

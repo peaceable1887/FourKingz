@@ -29,7 +29,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
     position: absolute;
-    bottom: 2%;
 }
 .arrowText
 {

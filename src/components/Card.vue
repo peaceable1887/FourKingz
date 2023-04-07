@@ -36,15 +36,9 @@
 <style lang="scss" scoped>
 .card
 {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-perspective: 1000px;
-            perspective: 1000px;
+    flex-direction: column;
+    perspective: 1000px;
     border: none;
  
 }
@@ -53,13 +47,8 @@
 {
     width: 100%;
     height: 100%;
-    -webkit-transition: -webkit-transform 1s;
-    transition: -webkit-transform 1s;
-    -o-transition: transform 1s;
     transition: transform 1s;
-    transition: transform 1s, -webkit-transform 1s;
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
+    transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
 }
@@ -73,8 +62,7 @@
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 16px;
-    -webkit-box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
 }
 
 .card_face--front
@@ -82,15 +70,9 @@
     /*background-image: linear-gradient(to bottom right, rgb(255, 217, 0), red);*/
     /*background-image: url("../assets/logo_fourKingz2.png");*/
     background-color: #222847;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 img
 {
@@ -105,8 +87,7 @@ img
 .card_face--back
 {
     background-color: #ccc661;
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .card_content
@@ -118,5 +99,42 @@ img
 .card_header
 {
     background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 160px;
+    align-items: center;
+    text-align: center;
+}
+.card_header h2
+{
+    color: black;
+    font-size: 45px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1.5px;
+   
+}
+.logo
+{
+    height: 90px;
+    width: 90px;
+}
+.card_body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ed9623;
+    height: 160px;
+    padding: 0 15px;
+    background-color: #222847;
+}
+.cardAction
+{
+    word-break: break-word;
 }
 </style>
