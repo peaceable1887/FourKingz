@@ -97,7 +97,7 @@ img
 
 .card_header
 {
-    background-color: white;
+    background-color: #ed9623;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -107,9 +107,9 @@ img
 }
 .card_header h2
 {
-    color: black;
+    color: #222847;
     font-size: 45px;
-    font-weight: 900;
+    font-weight: bold;
     text-transform: uppercase;
     padding: 0;
     margin: 0;

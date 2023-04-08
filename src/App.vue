@@ -28,8 +28,8 @@ html,
 body 
 {
   overscroll-behavior-x: none;
-  background: -o-linear-gradient(45deg, #a8511e, #ed9623);
-  background: linear-gradient(45deg, #a8511e, #ed9623);
+  background: -o-linear-gradient(45deg, #a1371d, #ed9623);
+  background: linear-gradient(45deg, #a1371d, #ed9623);
   background-repeat: no-repeat;
   font-family: 'Lilita One', cursive;
 }
