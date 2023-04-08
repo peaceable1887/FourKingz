@@ -23,6 +23,7 @@ export default
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&family=Rubik&display=swap');
 html,
 body 
 {
@@ -30,6 +31,7 @@ body
   background: -o-linear-gradient(45deg, #a8511e, #ed9623);
   background: linear-gradient(45deg, #a8511e, #ed9623);
   background-repeat: no-repeat;
+  font-family: 'Lilita One', cursive;
 }
 
 </style>

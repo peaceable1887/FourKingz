@@ -40,7 +40,6 @@
     flex-direction: column;
     perspective: 1000px;
     border: none;
- 
 }
 
 .card_inner
@@ -114,8 +113,7 @@ img
     text-transform: uppercase;
     padding: 0;
     margin: 0;
-    letter-spacing: 1.5px;
-   
+    letter-spacing: 1.5px; 
 }
 .logo
 {

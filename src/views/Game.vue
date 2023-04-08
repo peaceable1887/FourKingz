@@ -39,7 +39,10 @@
     </div>
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="msg">
-            <span class="text">Spiel beendet. Vier Könige gezogen.</span>
+            <div class="image">
+                <img src="../assets/check-mark-organge.png">
+            </div>
+            <span class="text">Spiel beendet.<br>Vier Könige gezogen.</span>
             <div class="btnWrapper">
                 <a href="/game">
                     <Button class="remain" text="Neu starten"></Button>
@@ -50,6 +53,9 @@
             </div>
         </div>
         <div id="overlayContent" v-else>
+            <div class="image">
+                <img src="../assets/questionmark-orange.png">
+            </div>
             <span class="text">Möchtest du das Spiel beenden?</span>
             <div class="btnWrapper">
                 <Button class="remain" @click="off()" text="Nein"></Button>
@@ -428,16 +434,21 @@
     top: 50%;
     left: 50%;
     padding: 20px;
-    font-size: 26px;
-    width: 250px;
-    font-weight: bold;
+    font-size: 24px;
+    width: 280px;
     text-align: center;
     color: #ed9623;
     background-color: #222847;
+    border: 4px solid #ed9623;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     border-radius: 10px;
+}
+.image img
+{
+    width: 60px;
+    padding: 5px 0 25px 0;
 }
 .btnWrapper
 {
@@ -447,7 +458,7 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -459,12 +470,11 @@
 
 Button
 {
-    padding: 10px;
+    padding: 5px;
     width: 180px;
     font-size: 22px;
     border-radius: 10px;
     margin: 10px;
-    font-weight: bold;
     color: #222847;
     background-color: #ed9623;
 }

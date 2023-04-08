@@ -58,6 +58,7 @@ export default
 </script>
 
 <style scoped>
+
 .container
 {
     display: -webkit-box;
@@ -87,29 +88,25 @@ export default
             justify-content: center;
 
 }
-Button
-{
-    width: 250px;
-    font-size: 18px;
-    font-weight: bold;
-}
 img
 {
     height: 300px;
 }
 Button
 {
+    width: 250px;
+    font-size: 24px;
     padding: 10px 0 10px 0;
 }
 #snackbar 
 {
     visibility: hidden;
     min-width: 250px;
-    background-color:#222847;
-    color: #ed9623;
+    background-color:rgb(36, 112, 36);
+    color: white;
     text-align: center;
     border-radius: 2px;
-    padding: 16px;
+    padding: 8px;
     position: fixed;
     z-index: 1;
     margin-left: auto;

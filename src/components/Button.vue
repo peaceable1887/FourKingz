@@ -25,7 +25,6 @@ button
 
 button:hover
 {
-    background-color:#222847;
-    color: #ccc661;
+    
 }
 </style>

@@ -47,12 +47,12 @@ import Button from "../components/Button.vue";
 .box-text
 {
     text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 24px;
+    color: #222847;
 }
 Button
 {
-    background: url("../assets/iconmonstr-arrow-left-lined-240.png") no-repeat;
+    background: url("../assets/arrow-left-toon.png") no-repeat;
     background-size: 40px 40px;
     height: 40px;  
     width: 40px;

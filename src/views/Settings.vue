@@ -171,10 +171,10 @@ import Header from "../components/Header.vue";
 }
 .btn
 {
-    font-weight: bold;
-    width: 100%;
+    width: 150px;
     background-color: #222847;
     color: #ed9623;
     margin: 15px 0 30px 0;
+    font-size: 20px;
 }
 </style>
