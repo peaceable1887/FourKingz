@@ -135,4 +135,19 @@ img
 {
     word-break: break-word;
 }
+@media(max-height: 568px)
+{
+    img
+    {
+        height: 180px;
+    }
+    .card_header
+    {
+        height: 140px;
+    }
+    .card_body
+    {
+        height: 140px;
+    }
+}
 </style>

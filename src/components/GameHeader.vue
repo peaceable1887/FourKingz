@@ -86,4 +86,12 @@ span
     color: white;
     font-size: 24px;
 }
+@media(max-height: 568px)
+{
+    .box
+    {
+       height: 100px;
+       padding: 16px 0;
+    }
+}
 </style>
