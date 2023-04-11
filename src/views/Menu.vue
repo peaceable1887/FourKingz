@@ -140,4 +140,17 @@ Button
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+@media(max-height: 568px)
+{
+    img
+    {
+        height: 200px;
+    }
+    Button
+    {
+        width: 200px;
+        font-size: 20px;
+        padding: 5px 0 5px 0;
+    }
+}
 </style>

@@ -182,4 +182,16 @@ form
     margin: 15px 0 30px 0;
     font-size: 20px;
 }
+@media(max-height: 568px)
+{
+    form
+    {
+        height: 400px;
+    }
+    .btn
+    {
+        width: 120px;
+        font-size: 16px;
+    }
+}
 </style>
