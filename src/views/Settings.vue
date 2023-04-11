@@ -155,11 +155,16 @@ import Header from "../components/Header.vue";
 .settings
 {
     padding: 0;
+    
 }
-.container
+.row
 {
-    -ms-touch-action:pan-y;
-        touch-action:pan-y;
+    text-align: center;
+}
+form
+{
+    height: 600px;
+    overflow: scroll;
 }
 .form-floating
 {

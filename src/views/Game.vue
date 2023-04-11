@@ -376,7 +376,6 @@
     padding: 0;
     width: 100vw;
 }
-
 .row
 {
     height: 100vh;

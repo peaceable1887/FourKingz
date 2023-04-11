@@ -32,6 +32,9 @@ body
   background: linear-gradient(45deg, #a1371d, #ed9623);
   background-repeat: no-repeat;
   font-family: 'Lilita One', cursive;
+  overflow: hidden;
+  height: 100vh;
 }
+
 
 </style>
