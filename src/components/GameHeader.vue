@@ -90,8 +90,18 @@ span
 {
     .box
     {
-       height: 100px;
-       padding: 16px 0;
+        font-size:14px;
+        height: 40px;
+        padding: 9px 0;
+    }
+    span
+    {
+        font-size: 14px;
+        margin-left: 8px;
+    }
+    br
+    {
+        display:none;
     }
 }
 </style>

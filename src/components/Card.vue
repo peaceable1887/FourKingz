@@ -139,15 +139,23 @@ img
 {
     img
     {
-        height: 180px;
+        height: 140px;
     }
     .card_header
     {
-        height: 140px;
+        height: 115px;
+    }
+    .card_header h2
+    {
+        font-size: 30px;
     }
     .card_body
     {
-        height: 140px;
+        height: 115px;
+    }
+    .cardAction
+    {
+        font-size: 16px;
     }
 }
 </style>

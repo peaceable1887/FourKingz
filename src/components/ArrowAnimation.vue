@@ -103,4 +103,18 @@
                 transform: rotate(45deg) translate(5px, 5px);
     }
 }
+@media(max-height: 568px)
+{
+    .arrowText
+    {
+        color: #222847;
+        font-size: 14px;
+        text-align: center;
+    }
+    .arrow span 
+    {
+        width: 20px;
+        height: 20px;
+    }
+}
 </style>

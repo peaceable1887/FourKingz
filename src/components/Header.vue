@@ -58,4 +58,21 @@ Button
     width: 40px;
     border: none;
 }
+@media(max-height: 568px)
+{
+    .row
+    {
+        padding: 8px 15px;
+    }
+    .box-text
+    {
+        font-size: 18px;
+    }
+    Button
+    {
+        background-size: 30px 30px;
+        height: 30px;  
+        width: 30px;
+    }
+}
 </style>

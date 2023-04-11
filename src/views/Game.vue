@@ -2,13 +2,13 @@
     <div class="container">
         <Header @atClickArrow="on()" text="Spiel"></Header>
         <div class="row">
-            <div class="col">
+            <div class="col-md-4">
                 <GameHeader class=""
                 :cards="`${32-activeIndex}`"
                 :kings="`${displayCountKing}`">
                 </GameHeader>  
             </div>
-            <div class="col">
+            <div class="col mt-5">
                 <swiper
                 :effect="'cards'"
                 :grabCursor="true"
@@ -483,8 +483,8 @@ Button
 {
     .swiper
     {
-        width: 200px;
-        height: 280px;
+        width: 160px;
+        height: 230px;
     }
 }
 </style>
