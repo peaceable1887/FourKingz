@@ -23,8 +23,4 @@ button
     text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
 }
 
-button:hover
-{
-    
-}
 </style>

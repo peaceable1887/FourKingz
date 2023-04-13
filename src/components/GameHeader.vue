@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-5">
+            <div class="col-lg-2 col-5">
                 <div class="box">
                     Restkarten<br><span>{{ cards }}</span>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-lg-2 col-5">
                 <div class="box">
                     Könige<br><span>{{ kings }}</span>
                 </div>
@@ -67,7 +67,6 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
     justify-content: center;
-
 }
 
 .box
@@ -76,6 +75,7 @@
     color: #ed9623;
     font-size: 22px;
     padding: 20px 0;
+    margin-bottom: 10vh;
     text-align: center;
     border-radius: 10px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

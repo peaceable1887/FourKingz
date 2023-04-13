@@ -1,17 +1,17 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-lg-4 col">
                 <div class="box">
                     <Button @click="$emit('atClickArrow')"></Button>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-4 col">
                 <div class="box-text">
                     {{text}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-4 col">
                 <div class="box">
                   
                 </div>
@@ -75,4 +75,5 @@ Button
         width: 30px;
     }
 }
+
 </style>

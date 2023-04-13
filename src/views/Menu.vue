@@ -153,4 +153,17 @@ Button
         padding: 5px 0 5px 0;
     }
 }
+@media screen and (orientation: landscape) {
+    img
+    {
+        height: 180px;
+    }
+    Button
+    {
+        width: 200px;
+        padding: 4px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+}
 </style>

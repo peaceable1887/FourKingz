@@ -2,13 +2,13 @@
     <div class="container">
         <Header @atClickArrow="on()" text="Spiel"></Header>
         <div class="row">
-            <div class="col-md-4">
-                <GameHeader class=""
+            <div class="col-1">
+                <GameHeader
                 :cards="`${32-activeIndex}`"
                 :kings="`${displayCountKing}`">
                 </GameHeader>  
             </div>
-            <div class="col mt-5">
+            <div class="col cards">
                 <swiper
                 :effect="'cards'"
                 :grabCursor="true"
@@ -32,7 +32,7 @@
                     </swiper-slide>      
                 </swiper>
             </div>
-            <div class="col pt-4">
+            <div class="col">
                 <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation> 
             </div>
         </div>
@@ -376,6 +376,10 @@
     padding: 0;
     width: 100vw;
 }
+.col.cards
+{
+    margin: 0 0 20px 0;
+}
 .row
 {
     height: 100vh;
@@ -486,4 +490,5 @@ Button
         height: 230px;
     }
 }
+
 </style>
