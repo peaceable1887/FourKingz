@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row row-cols-1 g-4">
             <div class="col mb-4">
-                <img class="rounded mx-auto d-block" src="../assets/logo_fourKingz2.png">
+                <img class="rounded mx-auto d-block" src="../assets/logo_fourKingz2.png" loading="lazy">
             </div>
             <div class="col">
                 <router-link to="/game">

@@ -3,7 +3,7 @@
         @click="$emit('flip-card')" 
         >
         <div class="card_face card_face--front">
-            <img src="../assets/logo_fourKingz2.png">
+            <img src="../assets/logo_fourKingz2.png" loading="lazy" alt="Four Kingz Logo">
         </div>
         <div class="card_face card_face--back">
             <div class="card content" >
