@@ -182,6 +182,11 @@ form
     margin: 15px 0 30px 0;
     font-size: 20px;
 }
+.btn:hover
+{
+    background-color: #222847;
+    color: #ed9623;
+}
 @media(max-height: 568px)
 {
     form
@@ -194,4 +199,5 @@ form
         font-size: 16px;
     }
 }
+
 </style>

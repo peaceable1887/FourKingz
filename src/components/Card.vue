@@ -40,6 +40,7 @@
     flex-direction: column;
     perspective: 1000px;
     border: none;
+    --bs-card-bg: #ed9623;
 }
 
 .card_inner
@@ -85,8 +86,9 @@ img
 
 .card_face--back
 {
-    background-color: #ccc661;
     transform: rotateY(180deg);
+    border: 4px solid #ed9623;
+
 }
 
 .card_content
@@ -108,7 +110,7 @@ img
 .card_header h2
 {
     color: #222847;
-    font-size: 45px;
+    font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
@@ -129,7 +131,10 @@ img
     color: #ed9623;
     height: 160px;
     padding: 0 15px;
+    font-size: 22px;
     background-color: #222847;
+    border-radius: 16px;
+
 }
 .cardAction
 {
