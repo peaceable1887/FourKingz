@@ -10,24 +10,17 @@
 ## <p><ins>Menu</ins></p>
 
 <p>
-    <img width="33%" src="src/assets/mobile-view-menu2.0.png">
+    <img width="200" src="src/assets/mobile-view-menu2.0.png">
 </p>
 
 ## <p ><ins>Game</ins></p>
 <p>
-    <img width="33%" src="src/assets/mobile-view-game.png">
+    <img src="src/assets/3ePiZZcQt6.gif" width="200"  />
 </p>
 
 ## <p><ins>Settings</ins></p>
 <p >
-    <img width="33%" src="src/assets/mobile-view-settings.png">
-</p>
-
-## <p><ins>Live Demo</ins></p>
-<p >
-    <video width="320" height="540" controls>
-        <source src="src/assets/fourKingzDemo.wmv" type="video/wmv">
-    </video>
+    <img width="200" src="src/assets/mobile-view-settings.png">
 </p>
 
 # *Project setup*
