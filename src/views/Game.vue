@@ -169,32 +169,22 @@
             handleTouchmove()
             {
                 const swiper = document.querySelector(".swiper")
-    
                 const slide = swiper.swiper
-                console.log("Active Index: " + slide.activeIndex)
-                console.log("clickedIndex: " + slide.clickedIndex)
-        
-                //falls die nutzer versehentlich auf die verdeckten karten auf der rechte seite klickt
-                if(slide.clickedIndex > slide.activeIndex)
-                {
-                    slide.clickedIndex = slide.activeIndex;
-                }
+             
                 if(slide.clickedIndex === undefined)
                 {
                     slide.clickedIndex = "0"
                 }
-                if(slide.activeIndex%slide.clickedIndex == 1 || isNaN(slide.activeIndex%slide.clickedIndex) || (slide.activeIndex === "2" && slide.clickedIndex === "1"))
+                if(slide.activeIndex%slide.clickedIndex == 1 || isNaN(slide.activeIndex%slide.clickedIndex) || 
+                (slide.activeIndex === "2" && slide.clickedIndex === "1") || slide.clickedIndex > slide.activeIndex)
                 {
                     slide.clickedIndex = slide.activeIndex
-                    console.log("modulo")
                 }
                 if(slide.slides[slide.clickedIndex].style.zIndex === "31" && slide.activeIndex === slide.clickedIndex) 
                 {
                     this.transformStyle = "" 
                     this.showCardContent = false
                     slide.allowTouchMove = false
-                    console.log(slide.slides[slide.clickedIndex].style.zIndex)
-                    
                 }
                
             },
@@ -473,7 +463,6 @@
     width: 200px !important;
     padding: 0px 0 0 0 !important;
     border-radius: 10px;
-    border: #ed9623 solid 1px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
