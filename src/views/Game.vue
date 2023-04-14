@@ -147,6 +147,7 @@
         {
             const swiper = document.querySelector(".swiper")
 
+            swiper.addEventListener("mouseup", this.handleTouchend)
             swiper.addEventListener("touchend", this.handleTouchend)
          
         },
