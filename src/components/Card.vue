@@ -87,7 +87,7 @@ img
 .card_face--back
 {
     transform: rotateY(180deg);
-    border: 4px solid #ed9623;
+    border: 6px solid #ed9623;
 
 }
 

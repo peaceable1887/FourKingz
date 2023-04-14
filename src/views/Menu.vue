@@ -39,6 +39,11 @@ export default
     },
     mounted()
     {
+        /*if(localStorage.getItem("showTutorial") === null)
+        {
+            localStorage.setItem("showTutorial", true);
+        }*/
+
         if(JSON.parse(localStorage.getItem("snackbar")) === true)
         {
             this.sucMsg()

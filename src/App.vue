@@ -18,6 +18,22 @@ export default
         history.go(1);
       };
     }
+    /*window.addEventListener('load', this.clearStorage())*/
+  },
+  methods:
+  {
+        /*clearStorage() 
+        {
+          let session = sessionStorage.getItem('showTutorial');
+
+          if (session == null) 
+          {
+              localStorage.removeItem('showTutorial')
+          }
+
+          sessionStorage.setItem('showTutorial', 1)
+        }*/
+        
   }
 }
 </script>

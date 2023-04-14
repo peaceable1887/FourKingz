@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <Header @atClickArrow="on()" text="Spiel"></Header>
+        <Header @atClickArrow="on(); leaveGame = true" text="Spiel"></Header>
         <div class="row">
             <div class="col-1">
                 <GameHeader
@@ -32,9 +32,6 @@
                     </swiper-slide>      
                 </swiper>
             </div>
-            <div class="col">
-                <ArrowAnimation v-if="showFlipArrow"></ArrowAnimation> 
-            </div>
         </div>
     </div>
     <div id="overlay" ref="overlay">
@@ -52,7 +49,7 @@
                 </router-link>
             </div>
         </div>
-        <div id="overlayContent" v-else>
+        <div id="overlayContent" v-if="leaveGame">
             <div class="image">
                 <img src="../assets/questionmark-orange.png">
             </div>
@@ -62,6 +59,15 @@
                 <router-link to="/">
                     <Button class="backToMenu" text="Ja"></Button>
                 </router-link>
+            </div>
+        </div>
+        <div id="overlayContent" v-if="showTutorial">
+            <span class="text">Tutorial</span>
+            <div class="image">
+                <img class="gif" src="../assets/tutorial-fourkingz-4zu3_AdobeExpress.gif">
+            </div>
+            <div class="btnWrapper">
+                <Button class="remain" @click="off()" text="Verstanden"></Button>
             </div>
         </div>
     </div>
@@ -78,7 +84,6 @@
 
     import Header from "../components/Header.vue";
     import GameHeader from "../components/GameHeader.vue";
-    import ArrowAnimation from "../components/ArrowAnimation.vue";
     import Button from "../components/Button.vue";
     import Card from "../components/Card.vue";
     
@@ -94,7 +99,6 @@
             SwiperSlide,
             Header,
             GameHeader,
-            ArrowAnimation,
             Button,
             Card,
         },
@@ -133,11 +137,19 @@
                 msg: false,
                 showFlipArrow: true,
                 displayCountKing: "0",
+                leaveGame: false,
+                showTutorial: true,
             }
         },
+
         /* eslint-disable */
         mounted()
         {
+            if(this.showTutorial === true)
+            {
+                this.on()
+            }
+
             const swiper = document.querySelector(".swiper")
             
             swiper.addEventListener("mousemove" , this.handleTouchmove)
@@ -358,6 +370,7 @@
             off() 
             {
                 this.$refs.overlay.style.display = "none";
+                this.showTutorial = false;
             }
         
         },
@@ -446,10 +459,23 @@
     -ms-transform: translate(-50%, -50%);
     border-radius: 10px;
 }
+.image
+{
+    padding-top: 15px;
+}
 .image img
 {
     width: 60px;
     padding: 5px 0 25px 0;
+}
+.gif
+{
+    width: 200px !important;
+    padding: 0px 0 0 0 !important;
+    border-radius: 10px;
+    border: #ed9623 solid 1px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .btnWrapper
 {
