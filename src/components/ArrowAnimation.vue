@@ -2,6 +2,8 @@
     Version: 3.2.41
     Auhtor: Felix Hansmann
     
+    ---(WIRD AKTUELL NICHT VERWENDET!)---
+
     Die Komponente "ArrowAnimation.vue" stellt einen animierten Pfeil zur Verfügung.
 -->
 <template>

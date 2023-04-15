@@ -28,41 +28,42 @@
 </template>
 
 <script>
-import Button from "../components/Button.vue";
+    //Import required components
+    import Button from "../components/Button.vue";
 
-export default 
-{
-    name: "item-menu",
-    components:
+    export default 
     {
-        Button,
-    },
-    data()
-    {
-        return{
-            snackbar: false,
-        }
-    },
-    mounted()
-    {
-        //wird angezeigt wenn die Einstellungen in "Settings" erfolgreich gespeichert wurden
-        if(JSON.parse(localStorage.getItem("snackbar")) === true)
+        name: "item-menu",
+        components:
         {
-            this.sucMsg()
-            localStorage.setItem("snackbar", this.snackbar) 
-        }
-    },
-    methods:
-    {
-        //zeigt die Snackbar an
-        sucMsg()
-        {
-            let x = document.getElementById("snackbar");
-            x.className = "show";
-            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+            Button,
         },
+        data()
+        {
+            return{
+                snackbar: false,
+            }
+        },
+        mounted()
+        {
+            //wird angezeigt wenn die Einstellungen in "Settings" erfolgreich gespeichert wurden
+            if(JSON.parse(localStorage.getItem("snackbar")) === true)
+            {
+                this.sucMsg()
+                localStorage.setItem("snackbar", this.snackbar) 
+            }
+        },
+        methods:
+        {
+            //zeigt die Snackbar an
+            sucMsg()
+            {
+                let x = document.getElementById("snackbar");
+                x.className = "show";
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+            },
+        }
     }
-}
 </script>
 
 <style scoped>

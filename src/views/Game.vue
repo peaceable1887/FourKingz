@@ -81,12 +81,12 @@
   </template>
 
   <script>
-    // Import Swiper Vue.js components
+    //Import Swiper Vue.js components
     import { Swiper, SwiperSlide} from 'swiper/vue';
-    // Import Swiper styles
+    //Import Swiper styles
     import 'swiper/css';
     import 'swiper/css/effect-cards';
-    // import required modules
+    //Import required modules
     import { EffectCards } from 'swiper';
     //Import required components
     import Header from "../components/Header.vue";
@@ -123,14 +123,14 @@
                 cards: Array.from(Array(CARD_COUNT).keys()),
                 cardsType: 
                 [
-                    {index: "0", name: "bube", type: "", action: "Alle Männer müssen trinken!", text: "", counter: 0, img: require ("@/assets/iconmonstr-boy.png")}, 
-                    {index: "1", name: "dame", type: "", action: "Alle Frauen müssen trinken!", text: "", counter: 0, img: require ("@/assets/iconmonstr-queen.png")},
-                    {index: "2", name: "könig", type: "", action: "Du musst trinken!", text: "", counter: 0, isFinished: false, img: require ("@/assets/iconmonstr-crown-white.png")},
-                    {index: "3", name: "ass", type: "", action: "Jeder muss trinken!", text: "", counter: 0, img: require ("@/assets/iconmonstr-friend-6-240.png")},
-                    {index: "4", name: "10", type: "", action: "Wähle eine Wortgruppe", text: "", counter: 0, img: require ("@/assets/iconmonstr-school-9-240.png")},
-                    {index: "5", name: "9", type: "", action: "Klopfen!", text: "", counter: 0, img: require ("@/assets/iconmonstr-speech-bubble-4-240.png")},
-                    {index: "6", name: "8", type: "", action: "Ich packe meinen Koffer", text: "", counter: 0, img: require ("@/assets/iconmonstr-school-11-240.png")},
-                    {index: "7", name: "7", type: "", action: "Schimpfwort", text: "", counter: 0, img: require ("@/assets/iconmonstr-speech-bubble-4-240.png")},
+                    {index: "0", name: "bube", type: "", action: "Alle Männer müssen trinken!", text: "", counter: 0, img: ""}, 
+                    {index: "1", name: "dame", type: "", action: "Alle Frauen müssen trinken!", text: "", counter: 0, img: ""},
+                    {index: "2", name: "könig", type: "", action: "Du musst trinken!", text: "", counter: 0, isFinished: false, img: ""},
+                    {index: "3", name: "ass", type: "", action: "Jeder muss trinken!", text: "", counter: 0, img: ""},
+                    {index: "4", name: "10", type: "", action: "Wähle eine Wortgruppe", text: "", counter: 0, img: ""},
+                    {index: "5", name: "9", type: "", action: "Klopfen!", text: "", counter: 0, img: ""},
+                    {index: "6", name: "8", type: "", action: "Ich packe meinen Koffer", text: "", counter: 0, img: ""},
+                    {index: "7", name: "7", type: "", action: "Schimpfwort", text: "", counter: 0, img: ""},
                 ],
                 cardsName: "",
                 cardsAction: "",
@@ -149,7 +149,6 @@
             }
         },
 
-        /* eslint-disable */
         mounted()
         {
             //zeigt ein Tutorial zu beginn das Spiels
@@ -175,7 +174,7 @@
             swiper.addEventListener("touchend", this.handleTouchend)
          
         },
-        /* eslint-disable */
+      
         methods:
         {
             /**
