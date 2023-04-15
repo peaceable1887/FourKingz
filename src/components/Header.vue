@@ -13,7 +13,6 @@
             </div>
             <div class="col-lg-4 col">
                 <div class="box">
-                  
                 </div>
             </div>
         </div>
@@ -26,7 +25,7 @@ import Button from "../components/Button.vue";
     export default 
     {
         name: "item-header",
-        emits:["atClickArrow"],
+        emits:["atClickArrow", "atClickQuestionmark"],
         components:
         {
             Button,

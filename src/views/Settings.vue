@@ -110,7 +110,7 @@ import Header from "../components/Header.vue";
             regexPattern(e) 
             {
                 let char = String.fromCharCode(e.keyCode);
-                if(/^[A-Za-z0-9\s\\?\\.\\!]+$/.test(char)) return true; 
+                if(/^[A-Za-z0-9äöüÄÖÜß\s\\?\\.\\!]+$/.test(char)) return true; 
                 else e.preventDefault(); 
             },
             onSubmit()

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <Header @atClickArrow="on(); leaveGame = true" text="Spiel"></Header>
+        <Header @atClickArrow="showOverlay(); leaveGame = true" text="Spiel"></Header>
         <div class="row">
             <div class="col-1">
                 <GameHeader
@@ -55,7 +55,7 @@
             </div>
             <span class="text">Möchtest du das Spiel beenden?</span>
             <div class="btnWrapper">
-                <Button class="remain" @click="off()" text="Nein"></Button>
+                <Button class="remain" @click="hideOverlay()" text="Nein"></Button>
                 <router-link to="/">
                     <Button class="backToMenu" text="Ja"></Button>
                 </router-link>
@@ -67,7 +67,7 @@
                 <img class="gif" src="../assets/tutorial-fourkingz-4zu3_AdobeExpress.gif">
             </div>
             <div class="btnWrapper">
-                <Button class="remain" @click="off()" text="Verstanden"></Button>
+                <Button class="remain" @click="hideOverlay()" text="Verstanden"></Button>
             </div>
         </div>
     </div>
@@ -147,7 +147,7 @@
         {
             if(this.showTutorial === true)
             {
-                this.on()
+                this.showOverlay()
             }
 
             const swiper = document.querySelector(".swiper")
@@ -274,7 +274,7 @@
                                     {
                                         swiper.allowSlideNext = false
                                         setTimeout(() => {
-                                            this.on();
+                                            this.showOverlay();
                                         }, 1500);
                                     }       
                                 }
@@ -349,15 +349,13 @@
                   
                 }
             },
-
-           
-
-            on()
+            
+            showOverlay()
             {
                 this.$refs.overlay.style.display = "block";
             },
 
-            off() 
+            hideOverlay() 
             {
                 this.$refs.overlay.style.display = "none";
                 this.showTutorial = false;
