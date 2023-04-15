@@ -1,3 +1,10 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "Game.vue" ist für die Darstellung und Anwendungslogik, 
+    des Spiels zuständig.
+-->
 <template>
     <div class="container">
         <Header @atClickArrow="showOverlay(); leaveGame = true" text="Spiel"></Header>
@@ -55,7 +62,7 @@
             </div>
             <span class="text">Möchtest du das Spiel beenden?</span>
             <div class="btnWrapper">
-                <Button class="remain" @click="hideOverlay()" text="Nein"></Button>
+                <Button class="remain" @click="hideOverlay(); leaveGame = false" text="Nein"></Button>
                 <router-link to="/">
                     <Button class="backToMenu" text="Ja"></Button>
                 </router-link>
@@ -81,7 +88,7 @@
     import 'swiper/css/effect-cards';
     // import required modules
     import { EffectCards } from 'swiper';
-
+    //Import required components
     import Header from "../components/Header.vue";
     import GameHeader from "../components/GameHeader.vue";
     import Button from "../components/Button.vue";
@@ -145,20 +152,25 @@
         /* eslint-disable */
         mounted()
         {
+            //zeigt ein Tutorial zu beginn das Spiels
             if(this.showTutorial === true)
             {
                 this.showOverlay()
             }
 
+            //swiper wird initialisiert
             const swiper = document.querySelector(".swiper")
-   
+            
+            //touch - und mousemove events
             swiper.addEventListener("mousemove" , this.handleTouchmove)
             swiper.addEventListener("touchmove" , this.handleTouchmove)    
         },
         updated()
         {
+            //swiper wird initialisiert
             const swiper = document.querySelector(".swiper")
 
+            //touchend und mousup events
             swiper.addEventListener("mouseup", this.handleTouchend)
             swiper.addEventListener("touchend", this.handleTouchend)
          
@@ -166,20 +178,29 @@
         /* eslint-disable */
         methods:
         {
+            /**
+             * Die Methode "handleTouchmove" verwaltet die das ziehen einer Karte.
+             */
             handleTouchmove()
             {
+                //swiper wird initialisiert
                 const swiper = document.querySelector(".swiper")
                 const slide = swiper.swiper
 
+                //"clickedIndex" der ersten Karte von undefined auf 0 setzen
                 if(slide.clickedIndex === undefined)
                 {
                     slide.clickedIndex = "0"
                 }
+
+                //falls während des ziehen der "clickedIndex" ungleich zum "activeIndex" ist
                 if(slide.activeIndex%slide.clickedIndex == 1 || isNaN(slide.activeIndex%slide.clickedIndex) || 
                 (slide.activeIndex === "2" && slide.clickedIndex === "1") || slide.clickedIndex > slide.activeIndex)
                 {
                     slide.clickedIndex = slide.activeIndex
                 }
+
+                //flippt die Karte zurück, wenn der "activeIndey" incrementiert
                 if(slide.slides[slide.clickedIndex].style.zIndex === "31" && slide.activeIndex === slide.clickedIndex) 
                 {
                     this.transformStyle = "" 
@@ -189,11 +210,16 @@
                
             },
 
+            /**
+             * Die Methode "handleTouchend" wird ausgeführt sobald eine Karte beim Slidewechsel losgelassen wid.
+             */
             handleTouchend()
             {
+                //swiper wird initialisiert
                 const swiper = document.querySelector(".swiper")
                 const slide = swiper.swiper
             
+                //wird asugeführt wenn der "clickedIndex" kleiner als der "activeIndex" ist.
                 if(slide.clickedIndex < slide.activeIndex)
                 {          
                     slide.allowSlideNext = false
@@ -203,6 +229,9 @@
                 }
             },
 
+            /**
+             * Die Methode "chooseCardActionValue" prüft ob die Aktion einer Karte in den Einstellungen selbst belegt wurde.
+             */
             chooseCardActionValue(cardAction, localStorageValue)
             {
                 if(localStorageValue === "" || localStorageValue === null )
@@ -213,8 +242,13 @@
                     this.cardsAction = localStorageValue;
                 }
             },
+
+            /**
+             * Die Methode "flipped" wird ausgeführt sobald eine verdeckte Karte per Klick umgedreht wurde
+             */
             flipped()
             {  
+                //swiper wird initialisiert
                 const swiper = document.querySelector(".swiper").swiper
                 
                 this.isFlipped = true
@@ -223,9 +257,13 @@
                 swiper.allowSlideNext = true
                 swiper.allowTouchMove = true
 
+                //wird solange ausgeführt bis 4 Könige gezogen sind
                 while(this.cardsType[2].isFinished === false && this.isFlipped === true && this.showCardContent === false)
                 {
+                    //dreht die Karte um 180 Grad
                     this.transformStyle = "transform: rotateY(180deg);" 
+                    
+                    //generiert zuällige Karte
                     let rndNumber = Math.floor(Math.random() * 8+1);
                  
                     switch(rndNumber)
@@ -348,20 +386,23 @@
                 }
             },
 
+            /**
+             * Die Methode "showOverlay" macht das Overlay sichtar
+             */
             showOverlay()
             {
                 this.$refs.overlay.style.display = "block";
             },
 
+            /**
+             * Die Methode "showOverlay" verbirgt das Overlay
+             */
             hideOverlay() 
             {
                 this.$refs.overlay.style.display = "none";
                 this.showTutorial = false;
-            }
-        
-        },
-       
-      
+            }     
+        },     
     };
   </script>
 
@@ -437,9 +478,9 @@
     font-size: 24px;
     width: 280px;
     text-align: center;
-    color: #ed9623;
-    background-color: #222847;
-    border: 4px solid #ed9623;
+    color: var(--color-main);
+    background-color: var(--color-second);
+    border: 4px solid var(--color-main);
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -487,8 +528,8 @@ Button
     font-size: 22px;
     border-radius: 10px;
     margin: 10px;
-    color: #222847;
-    background-color: #ed9623;
+    color: var(--color-second);
+    background-color: var(--color-main);
 }
 
 @media(max-height: 568px)

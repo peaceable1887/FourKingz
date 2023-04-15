@@ -1,3 +1,10 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "Card.vue" stellt die Struktur, einer einzelenen Karten, 
+    sowohl für die Vorderseite als auch Rückseite zur Verfügung.
+-->
 <template> 
     <div
         @click="$emit('flip-card')" 
@@ -40,7 +47,7 @@
     flex-direction: column;
     perspective: 1000px;
     border: none;
-    --bs-card-bg: #ed9623;
+    --bs-card-bg: var(--color-main);
 }
 
 .card_inner
@@ -67,9 +74,7 @@
 
 .card_face--front
 {
-    /*background-image: linear-gradient(to bottom right, rgb(255, 217, 0), red);*/
-    /*background-image: url("../assets/logo_fourKingz2.png");*/
-    background-color: #222847;
+    background-color: var(--color-second);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,7 +92,7 @@ img
 .card_face--back
 {
     transform: rotateY(180deg);
-    border: 6px solid #ed9623;
+    border: 6px solid var(--color-main);
 
 }
 
@@ -99,7 +104,7 @@ img
 
 .card_header
 {
-    background-color: #ed9623;
+    background-color: var(--color-main);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -128,11 +133,11 @@ img
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #ed9623;
+    color: var(--color-main);
     height: 160px;
     padding: 0 15px;
     font-size: 22px;
-    background-color: #222847;
+    background-color: var(--color-second);
     border-radius: 16px;
 
 }

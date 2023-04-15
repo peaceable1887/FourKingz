@@ -3,8 +3,6 @@
 </template>
 
 <script>
-
-
 export default 
 {
   name: 'App',
@@ -18,28 +16,20 @@ export default
         history.go(1);
       };
     }
-    /*window.addEventListener('load', this.clearStorage())*/
   },
-  methods:
-  {
-        /*clearStorage() 
-        {
-          let session = sessionStorage.getItem('showTutorial');
-
-          if (session == null) 
-          {
-              localStorage.removeItem('showTutorial')
-          }
-
-          sessionStorage.setItem('showTutorial', 1)
-        }*/
-        
-  }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&family=Rubik&display=swap');
+
+:root
+{
+  --color-main: #ed9623;
+  --color-second: #222847;
+  --font-main: 'Lilita One', cursive;
+}
+
 html,
 body 
 {
@@ -47,7 +37,7 @@ body
   background: -o-linear-gradient(45deg, #a1371d, #ed9623);
   background: linear-gradient(45deg, #ed4b23, #ed9623);
   background-repeat: no-repeat;
-  font-family: 'Lilita One', cursive;
+  font-family: var(--font-main);
   overflow: hidden;
   height: 100vh;
 }

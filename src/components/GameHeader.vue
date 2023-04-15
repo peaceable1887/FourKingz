@@ -1,3 +1,9 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "GameHeader.vue" ist für die Darstellung der verbleibenden Restkarten und der akutell gezogenen Könige dar.
+-->
 <template>
     <div class="container">
         <div class="row">
@@ -30,35 +36,7 @@
                 portait: Boolean,
             }
         },
-        created()
-        {
-            const portrait = window.matchMedia("(orientation: portrait)").matches
-
-            if(portrait)
-            {
-                this.portait = true
-            }else
-            {
-                this.portait = false
-            }
-        },
-        mounted()
-        {
-            window.matchMedia("(orientation: portrait)").addEventListener("change", e =>
-            {
-                const portrait = e.matches;
-
-                if(portrait)
-                {
-                    this.portait = true
-                }else
-                {
-                    this.portait = false
-                }
-            });
-        },
     }
-    
 </script>
 
 <style lang="scss" scoped>
@@ -71,8 +49,8 @@
 
 .box
 {
-    background-color: #222847;
-    color: #ed9623;
+    background-color: var(--color-second);
+    color: var(--color-main);
     font-size: 22px;
     padding: 20px 0;
     margin-bottom: 10vh;

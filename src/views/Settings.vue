@@ -146,7 +146,6 @@ import Header from "../components/Header.vue";
                 keysToRemove.forEach(key => localStorage.removeItem(key))
                 window.location.href = '/settings';
             },
-
         }
     }
 </script>
@@ -155,7 +154,6 @@ import Header from "../components/Header.vue";
 .settings
 {
     padding: 0;
-    
 }
 .row
 {
@@ -172,20 +170,20 @@ form
 }
 .invalid-feedback
 {
-    color: #222847;
+    color: var(--color-second);
 }
 .btn
 {
     width: 150px;
-    background-color: #222847;
-    color: #ed9623;
+    background-color: var(--color-second);
+    color: var(--color-main);
     margin: 15px 0 30px 0;
     font-size: 20px;
 }
 .btn:hover
 {
-    background-color: #222847;
-    color: #ed9623;
+    background-color: var(--color-second);
+    color: var(--color-main);
 }
 @media(max-height: 568px)
 {

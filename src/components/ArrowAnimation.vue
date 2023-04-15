@@ -1,3 +1,9 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "ArrowAnimation.vue" stellt einen animierten Pfeil zur Verfügung.
+-->
 <template>
     <div class="arrowWrapper">
         <div class="arrow">

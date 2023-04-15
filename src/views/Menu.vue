@@ -39,11 +39,7 @@ export default
     },
     mounted()
     {
-        /*if(localStorage.getItem("showTutorial") === null)
-        {
-            localStorage.setItem("showTutorial", true);
-        }*/
-
+        //wird angezeigt wenn die Einstellungen in "Settings" erfolgreich gespeichert wurden
         if(JSON.parse(localStorage.getItem("snackbar")) === true)
         {
             this.sucMsg()
@@ -52,6 +48,7 @@ export default
     },
     methods:
     {
+        //zeigt die Snackbar an
         sucMsg()
         {
             let x = document.getElementById("snackbar");
@@ -91,7 +88,6 @@ export default
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-
 }
 img
 {

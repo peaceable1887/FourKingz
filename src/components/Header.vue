@@ -47,7 +47,7 @@ import Button from "../components/Button.vue";
 {
     text-align: center;
     font-size: 24px;
-    color: #222847;
+    color: var(--color-second);
 }
 Button
 {
