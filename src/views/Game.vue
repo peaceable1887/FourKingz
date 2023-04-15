@@ -187,7 +187,7 @@
                 const swiper = document.querySelector(".swiper")
                 const slide = swiper.swiper
 
-                //"clickedIndex" der ersten Karte von undefined auf 0 setzen
+                //setzt den "clickedIndex" der ersten Karte von undefined auf 0 
                 if(slide.clickedIndex === undefined)
                 {
                     slide.clickedIndex = "0"
@@ -200,7 +200,7 @@
                     slide.clickedIndex = slide.activeIndex
                 }
 
-                //flippt die Karte zurück, wenn der "activeIndey" incrementiert
+                //flippt die Karte zurück, wenn der "activeIndex" incrementiert
                 if(slide.slides[slide.clickedIndex].style.zIndex === "31" && slide.activeIndex === slide.clickedIndex) 
                 {
                     this.transformStyle = "" 
@@ -211,7 +211,7 @@
             },
 
             /**
-             * Die Methode "handleTouchend" wird ausgeführt sobald eine Karte beim Slidewechsel losgelassen wid.
+             * Die Methode "handleTouchend" wird ausgeführt, sobald eine Karte beim Slidewechsel losgelassen wird.
              */
             handleTouchend()
             {
@@ -266,6 +266,7 @@
                     //generiert zuällige Karte
                     let rndNumber = Math.floor(Math.random() * 8+1);
                  
+                    //wählt eine Karte entsprechend der "rndNumber"
                     switch(rndNumber)
                     {
                         case 1:          
@@ -302,6 +303,7 @@
                                 this.cardsType[2].counter++
                                 this.displayCountKing = this.cardsType[2].counter
                                 
+                                //wird ausgeführt sobald 4 Könige gezogen wurden
                                 if(this.cardsType[2].counter === 4)
                                 {
                                     this.cardsType[2].isFinished = true

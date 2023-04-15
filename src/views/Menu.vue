@@ -1,3 +1,9 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "Menu.vue" ist für die Darstellung des Menü bzw. der Startseite veranwortlich.
+-->
 <template>
     <div class="container">
         <div class="row row-cols-1 g-4">

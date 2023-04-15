@@ -1,3 +1,10 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "Settings.vue" ist für die Darstellung und Anwendungslogik, 
+    der Einstellungen zuständig. Hier können die Karten mit frei gewählten Aktionen belegt werden.
+-->
 <template>
     <Header class="settings" @atClickArrow="backToMenu()" text="Einstellungen"></Header>
     <div class="container">
@@ -90,8 +97,10 @@ import Header from "../components/Header.vue";
         },
         mounted()
         {
+            
             const form = document.querySelector("form")
 
+            //überprüft ob alle Input-Felder, im Formular, belegt sind und Informiert den Nutzer ggf. wenn ein Feld leer ist.
             form.addEventListener("submit", e => {
                 if(!form.checkValidity())
                 {
@@ -103,16 +112,29 @@ import Header from "../components/Header.vue";
         },
         methods:
         {
+            /**
+            * Die Methode "backToMenu" leitet die Nutzer zurück auf die Startseite.
+            */
             backToMenu()
             {
                 this.$router.push("/")
-            },          
+            },    
+            
+            /**
+            * Die Methode "regexPattern" entscheidet welche Eingabe im für das Input-Feld erlaubt ist.
+            * 
+            * @param e
+            */
             regexPattern(e) 
             {
                 let char = String.fromCharCode(e.keyCode);
                 if(/^[A-Za-z0-9äöüÄÖÜß\s\\?\\.\\!]+$/.test(char)) return true; 
                 else e.preventDefault(); 
             },
+
+            /**
+            * Die Methode "onSumbit" prüft ob alle Eingaben getätigt wurden und speichert die in der LocalStorage.
+            */
             onSubmit()
             {
                
@@ -134,11 +156,23 @@ import Header from "../components/Header.vue";
                 }
                 
             },
+
+            /**
+            * Die Methode "truncate" nimmt die Eingabe je Input-Feld entgegen 
+            * und schneidet den Text ab einer größe von 60 Zeichen ab.
+            * 
+            * @param str
+            */
             truncate(str) 
             {
                 return (str.length > 61) ?
                     str.slice(0, 61 - 1) + '…' : str;
             }, 
+
+            /**
+            * Die Methode "clearCardActionValue" leert den LocalenStorage, 
+            * wenn die Nutzer auf den Button "Zurücksetzen" klicken.
+            */
             clearCardActionValue()
             {
                 let keysToRemove = ["king", "queen","boy", "ace","ten", "nine", "eight", "seven"]
