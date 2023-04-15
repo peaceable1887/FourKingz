@@ -1,9 +1,8 @@
-# **FOUR KINGZ** (Browsergame)
+# **Four Kingz** (Browsergame)
 ### **Card drinking game** *(Explanation)*:
 
-#### The drinking game uses a Skat card deck, where each player draws a card one after another. Each card value, such as Jack, Ace, or Ten, is associated with a specific action. <br>These actions can also be customized. The player who's turn it is must perform the action associated with the card drawn. The game ends once the **fourth King** has been drawn.
+<p>The drinking game uses a Skat card deck, where each player draws a card one after another. Each card value, such as Jack, Ace, or Ten, is associated with a specific action. <br>These actions can also be customized. The player who's turn it is must perform the action associated with the card drawn. The game ends once the **fourth King** has been drawn.</p>
 &nbsp;
----
 
 # *Layout*
 

@@ -151,7 +151,7 @@
             }
 
             const swiper = document.querySelector(".swiper")
-            
+   
             swiper.addEventListener("mousemove" , this.handleTouchmove)
             swiper.addEventListener("touchmove" , this.handleTouchmove)    
         },
@@ -170,7 +170,7 @@
             {
                 const swiper = document.querySelector(".swiper")
                 const slide = swiper.swiper
-             
+
                 if(slide.clickedIndex === undefined)
                 {
                     slide.clickedIndex = "0"
@@ -200,7 +200,6 @@
                     slide.allowTouchMove = true
                     this.activeIndex = slide.activeIndex
                     slide.slides[slide.clickedIndex].style.visibility = "hidden"
-                    console.log("geht rein")
                 }
             },
 
@@ -217,7 +216,6 @@
             flipped()
             {  
                 const swiper = document.querySelector(".swiper").swiper
-                console.log("flipped")
                 
                 this.isFlipped = true
                 this.showFlipArrow = false
@@ -349,7 +347,7 @@
                   
                 }
             },
-            
+
             showOverlay()
             {
                 this.$refs.overlay.style.display = "block";
