@@ -12,7 +12,8 @@
                 </div>
             </div>
             <div class="col-lg-4 col">
-                <div class="box">
+                <div class="box-sound">
+                    <Sound></Sound>
                 </div>
             </div>
         </div>
@@ -22,6 +23,7 @@
 <script>
     //Import required components
     import Button from "../components/Button.vue";
+    import Sound from "../components/Sound.vue"
 
     export default 
     {
@@ -30,6 +32,7 @@
         components:
         {
             Button,
+            Sound
         },
         props:
         {
@@ -49,6 +52,11 @@
     text-align: center;
     font-size: 24px;
     color: var(--color-second);
+}
+.box-sound
+{
+    padding-top: 2px;
+    float: right
 }
 Button
 {
