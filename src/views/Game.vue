@@ -15,7 +15,7 @@
                 :kings="`${displayCountKing}`">
                 </GameHeader>  
             </div>
-            <div class="col cards">
+            <div class="cardContainer">
                 <swiper
                 :effect="'cards'"
                 :grabCursor="true"
@@ -38,24 +38,12 @@
                         </Card>
                     </swiper-slide>      
                 </swiper>
+                <div v-if="msg" class="cardOverlayBg"></div>
+                <CardAnimation v-if="msg" class="cardOverlay"></CardAnimation>
             </div>
         </div>
     </div>
     <div id="overlay" ref="overlay">
-        <div id="overlayContent" v-if="msg">
-            <div class="image">
-                <img src="../assets/check-mark-organge.png">
-            </div>
-            <span class="text">Spiel beendet.<br>Vier Könige gezogen.</span>
-            <div class="btnWrapper">
-                <a href="/game">
-                    <Button class="remain" text="Neu starten"></Button>
-                </a>
-                <router-link to="/">
-                    <Button class="backToMenu" text="Hauptmenü"></Button>
-                </router-link>
-            </div>
-        </div>
         <div id="overlayContent" v-if="leaveGame">
             <div class="image">
                 <img src="../assets/questionmark-orange.png">
@@ -93,6 +81,7 @@
     import GameHeader from "../components/GameHeader.vue";
     import Button from "../components/Button.vue";
     import Card from "../components/Card.vue";
+    import CardAnimation from "../components/CardAnimation.vue";
     
     //Number of Cards
     const CARD_COUNT = 32;
@@ -108,6 +97,7 @@
             GameHeader,
             Button,
             Card,
+            CardAnimation
         },
         setup() 
         {
@@ -152,7 +142,7 @@
         mounted()
         {
             //zeigt ein Tutorial zu beginn das Spiels
-            if(this.showTutorial === true)
+            if(this.showTutorial)
             {
                 this.showOverlay()
             }
@@ -415,10 +405,6 @@
     padding: 0;
     width: 100vw;
 }
-.col.cards
-{
-    margin: 0 0 20px 0;
-}
 .row
 {
     height: 100vh;
@@ -427,11 +413,20 @@
         -ms-flex-direction: column;
             flex-direction: column;
 }
+.cardContainer
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
 .swiper 
 {
     width: 240px;
     height: 320px;
+    position: absolute;
+    top: 0;
 }
+
 .swiper-slide 
 {
     display: -webkit-box;
@@ -452,7 +447,34 @@
     -moz-user-select: none;
          user-select: none; /* Standard syntax */
 }
-
+.cardOverlayBg
+{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0);
+    z-index: 1;
+    animation-name: cardOverlayBg;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.cardOverlay
+{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 240px;
+    height: 320px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    animation-name: cardOverlay;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
 #overlay 
 {
     position: fixed;
@@ -464,7 +486,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     -ms-touch-action: none;
         touch-action: none;
@@ -541,5 +563,36 @@ Button
         height: 230px;
     }
 }
+@keyframes cardOverlayBg
+{
+    0%
+    {
+        background-color: rgba(0,0,0,0);
+    }
+    50%
+    {
+        background-color: rgba(0,0,0,0.25);
+    }
+    100%
+    {
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+@keyframes cardOverlay
+{
+   0%
+   {
+        transform: scale(1);
+   }
+   50%
+   {
+        transform: scale(1.17) translate(0, -20%)
+   }
+   100%
+   {
+        transform: scale(1.17) translate(0, -20%) rotateY(180deg);
+   }
+}
+
 
 </style>

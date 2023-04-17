@@ -6,41 +6,57 @@
     sowohl für die Vorderseite als auch Rückseite zur Verfügung.
 -->
 <template> 
-    <div
-        @click="$emit('flip-card')" 
-        >
+    <div>
         <div class="card_face card_face--front">
-            <img src="../assets/logo_fourKingz2.png" loading="lazy" alt="Four Kingz Logo">
-        </div>
-        <div class="card_face card_face--back">
             <div class="card content" >
                 <div class="card_header">
-                    <h2>{{cardName}}</h2>
+                    <h2>König</h2>
                 </div>
                 <div class="card_body">
-                    <span class="cardAction">{{cardAction}}</span>
+                    <span class="cardAction">Du musst trinken!</span>
                 </div>
+            </div>
+        </div>
+        <div class="card_face card_face--back">
+            <div class="image">
+                <img src="../assets/check-mark-organge.png">
+            </div>
+            <span class="text">Spiel beendet.<br>Vier Könige gezogen.</span>
+            <div class="btnWrapper">
+                <a href="/game">
+                    <Button class="remain" text="Neu starten"></Button>
+                </a>
+                <router-link to="/">
+                    <Button class="backToMenu" text="Hauptmenü"></Button>
+                </router-link>
             </div>
         </div>     
     </div>
 </template>
 
 <script>
+    //Import required components
+    import Button from "../components/Button.vue";
+
     export default 
     {
         name: "item-card",
-        emits: ['flip-card'],
+        components:
+        {
+            Button,
+        },
         props:
         {
             cardNumber: String,
             cardName: String,
             cardAction: String,
-        }
+        },
 
     }
 </script>
 
 <style lang="scss" scoped>
+
 .card
 {
     display: flex;
@@ -75,9 +91,7 @@
 .card_face--front
 {
     background-color: var(--color-second);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 6px solid var(--color-main);
 }
 img
 {
@@ -93,6 +107,10 @@ img
 {
     transform: rotateY(180deg);
     border: 6px solid var(--color-main);
+    background-color: var(--color-second);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }
 
 .card_content
@@ -143,6 +161,44 @@ img
 .cardAction
 {
     word-break: break-word;
+}
+.image img
+{
+    height: 90px;
+    width: 60px;
+    padding: 15px 0 15px 0;
+}
+.text
+{
+    color: var(--color-main);
+    font-size: 20px;
+}
+.btnWrapper
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+Button
+{
+    padding: 5px;
+    width: 180px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    color: var(--color-second);
+    background-color: var(--color-main);
 }
 @media(max-height: 568px)
 {
