@@ -2,8 +2,7 @@
     Version: 3.2.41
     Auhtor: Felix Hansmann
     
-    Die Komponente "Card.vue" stellt die Struktur, einer einzelenen Karten, 
-    sowohl für die Vorderseite als auch Rückseite zur Verfügung.
+    Die Komponente "CardAnimation.vue" ist eine seperate Karte die erstellt wird sobald der vierte König gezogen wurde.
 -->
 <template> 
     <div>

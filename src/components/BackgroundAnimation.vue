@@ -1,3 +1,9 @@
+<!--   
+    Version: 3.2.41
+    Auhtor: Felix Hansmann
+    
+    Die Komponente "BackgroundAnimation.vue" stellt den animierten Hintergrund zur Verfügung.
+-->
 <template>
       <section class="sticky">
         <div class="bubbles">

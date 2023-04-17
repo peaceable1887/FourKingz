@@ -10,7 +10,8 @@
         @click="$emit('flip-card')" 
         >
         <div class="card_face card_face--front">
-            <img src="../assets/logo_fourKingz2.png" loading="lazy" alt="Four Kingz Logo">
+            <div class="imgLogo" loading="lazy"></div>
+            <div class="imgBg" loading="lazy"></div>
         </div>
         <div class="card_face card_face--back">
             <div class="card content" >
@@ -78,10 +79,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
-img
+.imgLogo
 {
-    height: 200px;
+    background-image: url("../assets/logo_fourKingz2.png");
+    background-size: 150px 170px;
+    width: 150px;
+    height: 170px;
+    position: absolute;
+    z-index: 1;
+}
+.imgBg
+{
+    background-image: url("../assets/halftone-circle-dot-1883ce41e11d3b13f8e80df9e5acdfe9.png");
+    background-repeat: no-repeat;
+    background-size: 260px 320px ;
+    width: 100% ;
+    height: 100%;
+    opacity: 0.2;
+    position: absolute;
 }
 .card_face--front h2
 {
@@ -146,7 +163,7 @@ img
 }
 @media(max-height: 568px)
 {
-    img
+    .img
     {
         height: 140px;
     }
