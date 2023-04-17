@@ -86,6 +86,8 @@
     -ms-touch-action: none;
         touch-action: none;
     min-height: 100vh;
+    z-index: 1;
+    position: relative;
 }
 .col
 {

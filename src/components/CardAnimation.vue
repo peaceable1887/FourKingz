@@ -26,9 +26,9 @@
                 <a href="/game">
                     <Button class="remain" text="Neu starten"></Button>
                 </a>
-                <router-link to="/">
+                <a href="/">
                     <Button class="backToMenu" text="Hauptmenü"></Button>
-                </router-link>
+                </a>
             </div>
         </div>     
     </div>

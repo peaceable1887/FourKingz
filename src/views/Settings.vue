@@ -186,6 +186,11 @@
 </script>
 
 <style lang="scss" scoped>
+.container
+{
+    z-index: 1;
+    position: relative;
+}
 .settings
 {
     padding: 0;

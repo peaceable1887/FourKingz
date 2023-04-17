@@ -1,11 +1,19 @@
 <template>
   <router-view></router-view>
+  <BackgroundAnimation></BackgroundAnimation>
 </template>
 
 <script>
+//Import required components
+import BackgroundAnimation from "./components/BackgroundAnimation.vue";
+
 export default 
 {
   name: 'App',
+  components:
+  {
+      BackgroundAnimation,
+  },
   mounted()
   {
     if(window.safari) 

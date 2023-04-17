@@ -10,13 +10,14 @@
         <Header @atClickArrow="showOverlay(); leaveGame = true" text="Spiel"></Header>
         <div class="row">
             <div class="col-1">
-                <GameHeader
+                <GameHeader  
                 :cards="`${32-activeIndex}`"
                 :kings="`${displayCountKing}`">
                 </GameHeader>  
             </div>
             <div class="cardContainer">
                 <swiper
+                v-if="gaming"
                 :effect="'cards'"
                 :grabCursor="true"
                 :touchStartPreventDefault="false"
@@ -27,7 +28,7 @@
                 :modules="modules"
                 class="mySwiper"
                 >
-                    <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}" >
+                    <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}">
                         <Card
                         @flip-card="isActive ? flipped() : null" 
                         :cardName="`${cardsName}`"
@@ -131,6 +132,7 @@
                 cardImg: "",
                 currentValue: 0,
                 showCardContent: false,
+                gaming: true,
                 msg: false,
                 showFlipArrow: true,
                 displayCountKing: "0",
@@ -296,13 +298,12 @@
                                 if(this.cardsType[2].counter === 4)
                                 {
                                     this.cardsType[2].isFinished = true
-                                    this.msg = true;   
+                                    this.msg = true
+                                    this.gaming = false
                                     if(this.msg)
                                     {
                                         swiper.allowSlideNext = false
-                                        setTimeout(() => {
-                                            this.showOverlay();
-                                        }, 1500);
+                                        
                                     }       
                                 }
                             break;
@@ -404,6 +405,8 @@
         touch-action: none;
     padding: 0;
     width: 100vw;
+    z-index: 1;
+    position: relative;
 }
 .row
 {
