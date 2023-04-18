@@ -16,29 +16,31 @@
                 </GameHeader>  
             </div>
             <div class="cardContainer">
-                <swiper
-                v-if="gaming"
-                :effect="'cards'"
-                :grabCursor="true"
-                :touchStartPreventDefault="false"
-                :allowSlidePrev="false"
-                :allowSlideNext="false"
-                :shortSwipes="false"
-                :longSwipesMs="0"
-                :modules="modules"
-                class="mySwiper"
-                >
-                    <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}">
-                        <Card
-                        @flip-card="isActive ? flipped() : null" 
-                        :cardName="`${cardsName}`"
-                        :cardAction="`${cardsAction}`"
-                        :style="[isActive ? `${this.transformStyle}` : '']"
-                        :class="{card_inner: card_inner, isFlipped: isFlipped}"
-                        >
-                        </Card>
-                    </swiper-slide>      
-                </swiper>
+                <Transition>  
+                    <swiper
+                    v-if="gaming"
+                    :effect="'cards'"
+                    :grabCursor="true"
+                    :touchStartPreventDefault="false"
+                    :allowSlidePrev="false"
+                    :allowSlideNext="false"
+                    :shortSwipes="false"
+                    :longSwipesMs="0"
+                    :modules="modules"
+                    class="mySwiper"
+                    >
+                        <swiper-slide v-for="card in cards" :key="card" v-slot="{isActive}">
+                            <Card
+                            @flip-card="isActive ? flipped() : null" 
+                            :cardName="`${cardsName}`"
+                            :cardAction="`${cardsAction}`"
+                            :style="[isActive ? `${this.transformStyle}` : '']"
+                            :class="{card_inner: card_inner, isFlipped: isFlipped}"
+                            >
+                            </Card>
+                        </swiper-slide>      
+                    </swiper>
+                </Transition>  
                 <div v-if="msg" class="cardOverlayBg"></div>
                 <CardAnimation v-if="msg" class="cardOverlay"></CardAnimation>
             </div>
@@ -57,7 +59,7 @@
                 </router-link>
             </div>
         </div>
-        <div id="overlayContent" v-if="showTutorial">
+        <div id="overlayContent" v-if="showTutorial" >
             <span class="text">Tutorial</span>
             <div class="image">
                 <img class="gif" src="../assets/tutorial-fourkingz-4zu3_AdobeExpress.gif">
@@ -309,7 +311,6 @@
                                     if(this.msg)
                                     {
                                         swiper.allowSlideNext = false
-                                        
                                     }       
                                 }
                             break;
@@ -397,14 +398,38 @@
              */
             hideOverlay() 
             {
-                this.$refs.overlay.style.display = "none";
+                this.fadeOut(this.$refs.overlay);
                 this.showTutorial = false;
-            }     
+            }, 
+            
+            /**
+             * Die Methode "out" nimm das Overlay-Element entgegen und lässt es langsam und glatt ausblenen
+             * 
+             * @param element
+             */
+            fadeOut(element)
+            {
+                let opacity = 1; 
+                let interval = setInterval(()=> {
+                if (opacity > 0) 
+                {
+                    opacity -= 0.1;
+                    element.style.opacity = opacity;
+                } 
+                else 
+                {
+                    clearInterval(interval); 
+                    element.style.display = 'none'; 
+                    element.style.opacity = 1;
+                }
+                }, 50);
+            }
         },     
     };
   </script>
 
 <style scoped>
+
 .container
 {
     -ms-touch-action: none;
@@ -456,7 +481,14 @@
     -moz-user-select: none;
          user-select: none; /* Standard syntax */
 }
-
+.v-leave-active 
+{
+  transition: opacity 0.5s ease;
+}
+.v-leave-to 
+{
+  opacity: 0;
+}
 #overlay 
 {
     position: fixed;
@@ -471,8 +503,8 @@
     z-index: 1;
     cursor: pointer;
     -ms-touch-action: none;
-        touch-action: none;
-    
+        touch-action: none; 
+
 }
 
 #overlayContent
@@ -491,13 +523,13 @@
     background-color: var(--color-second);
     border: 4px solid var(--color-main);
     border-radius: 10px;
+    transform: translate(-50%, -50%);
     animation-name: defaultOverlay;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    
+    animation-direction: alternate;
 }
-
 .image img
 {
     width: 80px;
@@ -566,12 +598,16 @@ Button:active
 {
     from
     {
-        transform: scale(0) translate(-50%, -50%);
+        opacity: 0;   
     }
     to
     {
-        transform: scale(1) translate(-50%, -50%);
+        transition: opacity 0.5s ease-out;
     }
+}
+@keyframes myNEWmove {
+  from {}
+  to {obackground-color: red }
 }
 @keyframes cardOverlayBg
 {
