@@ -199,6 +199,12 @@ Button
     color: var(--color-second);
     background-color: var(--color-main);
 }
+Button:active
+{
+    color: var(--color-main);
+    border: 1px solid var(--color-main);
+    background-color: var(--color-second);
+}
 @media(max-height: 568px)
 {
     img

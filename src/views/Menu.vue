@@ -108,6 +108,7 @@ Button
     font-size: 24px;
     padding: 10px 0 10px 0;
 }
+
 #snackbar 
 {
     visibility: hidden;

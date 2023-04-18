@@ -153,8 +153,11 @@
             const swiper = document.querySelector(".swiper")
             
             //touch - und mousemove events
-            swiper.addEventListener("mousemove" , this.handleTouchmove)
-            swiper.addEventListener("touchmove" , this.handleTouchmove)    
+            if(swiper) 
+            {
+                swiper.addEventListener("mousemove" , this.handleTouchmove)
+                swiper.addEventListener("touchmove" , this.handleTouchmove) 
+            }   
         },
         updated()
         {
@@ -162,8 +165,11 @@
             const swiper = document.querySelector(".swiper")
 
             //touchend und mousup events
-            swiper.addEventListener("mouseup", this.handleTouchend)
-            swiper.addEventListener("touchend", this.handleTouchend)
+            if(swiper) 
+            {
+                swiper.addEventListener("mouseup", this.handleTouchend)
+                swiper.addEventListener("touchend", this.handleTouchend)
+            }
          
         },
       
@@ -557,6 +563,12 @@ Button
     color: var(--color-second);
     background-color: var(--color-main);
 }
+Button:active
+{
+    color: var(--color-main);
+    border: 1px solid var(--color-main);
+    background-color: var(--color-second);
+}
 
 @media(max-height: 568px)
 {
@@ -589,11 +601,13 @@ Button
    }
    50%
    {
-        transform: scale(1.17) translate(0, -20%)
+        transform: scale(1.15) translate(0, -20%)
    }
    100%
    {
-        transform: scale(1.17) translate(0, -20%) rotateY(180deg);
+        transform: scale(1.15) translate(0, -20%) rotateY(180deg);
+        
+        
    }
 }
 

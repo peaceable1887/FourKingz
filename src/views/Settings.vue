@@ -60,10 +60,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <input class="btn" @click="clearCardActionValue()" value="Zurücksetzen">
+                        <Button @click="clearCardActionValue()" text="Zurücksetzen"></Button>
                     </div>
                     <div class="col">
-                        <input class="btn" type="submit" value="Speichern">
+                        <Button type="submit" text="Speichern"></Button>
                     </div>
                 </div>
             </div>   
@@ -74,6 +74,7 @@
 <script>
     //Import required components
     import Header from "../components/Header.vue";
+    import Button from "../components/Button.vue";
 
     export default 
     {
@@ -81,6 +82,7 @@
         components:
         {
             Header,
+            Button,
         },  
         data()
         {
@@ -212,18 +214,12 @@ form
 {
     color: var(--color-second);
 }
-.btn
+Button
 {
     width: 150px;
-    background-color: var(--color-second);
-    color: var(--color-main);
     margin: 15px 0 30px 0;
     font-size: 20px;
-}
-.btn:hover
-{
-    background-color: var(--color-second);
-    color: var(--color-main);
+    padding: 5px 0;
 }
 @media(max-height: 568px)
 {

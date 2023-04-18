@@ -21,7 +21,7 @@
         data()
         {
             return{
-                soundOn: true,
+                soundOn: false,
             }
         },
         methods:
@@ -32,7 +32,6 @@
                 beat.play();
                     
                 this.soundOn = !this.soundOn;
-              
             }
         }
     }
