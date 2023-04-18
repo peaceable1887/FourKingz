@@ -27,13 +27,13 @@ button
     color: var(--color-main);
     border: none;
     text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-    transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
+    transition: 0.5s all;
 }
 button:active
 {
     color: var(--color-second);
-    background-color: var(--color-main);;
+    background-color: var(--color-main);
+    transform: scale(0.98);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
  

@@ -456,6 +456,76 @@
     -moz-user-select: none;
          user-select: none; /* Standard syntax */
 }
+
+#overlay 
+{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    cursor: pointer;
+    -ms-touch-action: none;
+        touch-action: none;
+    
+}
+
+#overlayContent
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    width: 280px;
+    height: 400px;
+    text-align: center;
+    color: var(--color-main);
+    background-color: var(--color-second);
+    border: 4px solid var(--color-main);
+    border-radius: 10px;
+    animation-name: defaultOverlay;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    
+}
+
+.image img
+{
+    width: 80px;
+}
+.gif
+{
+    width: 200px !important;
+    padding: 0px 0 0 0 !important;
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+Button
+{
+    padding: 5px;
+    width: 180px;
+    font-size: 22px;
+    border-radius: 10px;
+    margin: 10px;
+    color: var(--color-second);
+    background-color: var(--color-main);
+}
+Button:active
+{
+    color: var(--color-main);
+    border: 1px solid var(--color-main);
+    background-color: var(--color-second);
+}
 .cardOverlayBg
 {
     position: fixed; 
@@ -484,98 +554,23 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-#overlay 
-{
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1;
-    cursor: pointer;
-    -ms-touch-action: none;
-        touch-action: none;
-}
-
-#overlayContent
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 20px;
-    font-size: 24px;
-    width: 280px;
-    text-align: center;
-    color: var(--color-main);
-    background-color: var(--color-second);
-    border: 4px solid var(--color-main);
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    border-radius: 10px;
-}
-.image
-{
-    padding-top: 15px;
-}
-.image img
-{
-    width: 60px;
-    padding: 5px 0 25px 0;
-}
-.gif
-{
-    width: 200px !important;
-    padding: 0px 0 0 0 !important;
-    border-radius: 10px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.btnWrapper
-{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin-top: 20px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-}
-
-Button
-{
-    padding: 5px;
-    width: 180px;
-    font-size: 22px;
-    border-radius: 10px;
-    margin: 10px;
-    color: var(--color-second);
-    background-color: var(--color-main);
-}
-Button:active
-{
-    color: var(--color-main);
-    border: 1px solid var(--color-main);
-    background-color: var(--color-second);
-}
-
 @media(max-height: 568px)
 {
     .swiper
     {
         width: 160px;
         height: 230px;
+    }
+}
+@keyframes defaultOverlay
+{
+    from
+    {
+        transform: scale(0) translate(-50%, -50%);
+    }
+    to
+    {
+        transform: scale(1) translate(-50%, -50%);
     }
 }
 @keyframes cardOverlayBg
