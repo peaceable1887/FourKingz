@@ -22,16 +22,33 @@
         {
             return{
                 soundOn: false,
+                audio: new Audio()
             }
         },
         methods:
         {
             muteSound()
             {
-                let beat = new Audio();
-                beat.play();
-                    
                 this.soundOn = !this.soundOn;
+
+                if(this.soundOn)
+                { 
+                    this.playAudio(require('@/assets/Pisco Sour.mp3'))
+                }else
+                {
+                    this.pauseAudio()
+                }    
+            },
+
+            playAudio(url) 
+            {
+                this.audio.src = url;
+                this.audio.play();
+            },
+
+            pauseAudio() 
+            {
+                this.audio.pause();
             }
         }
     }

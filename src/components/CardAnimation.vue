@@ -198,6 +198,7 @@ Button
     margin: 10px;
     color: var(--color-second);
     background-color: var(--color-main);
+    box-shadow: none;
 }
 Button:active
 {

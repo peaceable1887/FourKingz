@@ -401,7 +401,7 @@
                 this.fadeOut(this.$refs.overlay);
                 this.showTutorial = false;
             }, 
-            
+
             /**
              * Die Methode "out" nimm das Overlay-Element entgegen und lässt es langsam und glatt ausblenen
              * 
@@ -410,8 +410,8 @@
             fadeOut(element)
             {
                 let opacity = 1; 
-                let interval = setInterval(()=> {
-                if (opacity > 0) 
+                let interval = setInterval(() => {
+                if(opacity > 0) 
                 {
                     opacity -= 0.1;
                     element.style.opacity = opacity;
@@ -483,11 +483,11 @@
 }
 .v-leave-active 
 {
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 .v-leave-to 
 {
-  opacity: 0;
+    opacity: 0;
 }
 #overlay 
 {
@@ -504,7 +504,6 @@
     cursor: pointer;
     -ms-touch-action: none;
         touch-action: none; 
-
 }
 
 #overlayContent
@@ -551,6 +550,7 @@ Button
     margin: 10px;
     color: var(--color-second);
     background-color: var(--color-main);
+    box-shadow: none;
 }
 Button:active
 {

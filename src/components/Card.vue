@@ -84,17 +84,17 @@
 .imgLogo
 {
     background-image: url("../assets/logo_fourKingz2.png");
-    background-size: 150px 170px;
+    background-size: 150px 180px;
     width: 150px;
-    height: 170px;
+    height: 180px;
     position: absolute;
     z-index: 1;
 }
 .imgBg
 {
-    background-image: url("../assets/halftone-circle-dot-1883ce41e11d3b13f8e80df9e5acdfe9.png");
-    background-repeat: no-repeat;
-    background-size: 260px 320px ;
+    background-image: url("../assets/dottedPattern.png");
+    background-repeat: repeat;
+    background-size: 260px 290px ;
     width: 100% ;
     height: 100%;
     opacity: 0.2;
