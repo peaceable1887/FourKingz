@@ -56,6 +56,7 @@
     margin-bottom: 10vh;
     text-align: center;
     border-radius: 10px;
+    border: 4px solid var(--color-main);
     -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

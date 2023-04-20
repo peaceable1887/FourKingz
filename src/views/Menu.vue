@@ -5,11 +5,10 @@
     Die Komponente "Menu.vue" ist für die Darstellung des Menü bzw. der Startseite veranwortlich.
 -->
 <template>
+    
     <div class="container">
+        <LogoAnimation></LogoAnimation>
         <div class="row row-cols-1 g-4">
-            <div class="col mb-4">
-                <img class="rounded mx-auto d-block" src="../assets/logo_fourKingz2.png" loading="lazy">
-            </div>
             <div class="col">
                 <router-link to="/game">
                     <Button text="Spiel starten"></Button>
@@ -29,6 +28,7 @@
 
 <script>
     //Import required components
+    import LogoAnimation from "../components/LogoAnimation.vue";
     import Button from "../components/Button.vue";
 
     export default 
@@ -36,6 +36,7 @@
         name: "item-menu",
         components:
         {
+            LogoAnimation,
             Button,
         },
         data()

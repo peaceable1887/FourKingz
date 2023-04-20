@@ -71,6 +71,7 @@
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--color-main);
 }
 
 .card_face--front
@@ -94,10 +95,10 @@
 {
     background-image: url("../assets/dottedPattern.png");
     background-repeat: repeat;
-    background-size: 260px 290px ;
+    background-size: 260px 280px ;
     width: 100% ;
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.15;
     position: absolute;
 }
 .card_face--front h2
@@ -109,7 +110,6 @@
 .card_face--back
 {
     transform: rotateY(180deg);
-    border: 6px solid var(--color-main);
 }
 
 .card_content
