@@ -39,6 +39,7 @@
 <style lang="scss" scoped>
 .animationContainer
 {
+    margin-top: 10vh;
     height: 300px;
 }
 .cards 
@@ -71,7 +72,7 @@
 {
     position: relative;
     z-index: 3;
-    top: 21vh;
+    top: 140px;
     text-align: center;
 }
 .logo img
