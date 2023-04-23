@@ -30,7 +30,21 @@ export default
         history.go(1);
       };
     }
+    window.addEventListener('load', this.clearStorage())
   },
+  methods:
+  {
+    clearStorage() 
+        {
+          let session = sessionStorage.getItem('animation');
+
+          if(session == null) 
+          {
+              localStorage.removeItem('animation')
+          }
+          sessionStorage.setItem('animation', 1)
+        }
+  }
 }
 </script>
 
@@ -55,6 +69,7 @@ body
   font-family: var(--font-main);
   overflow: hidden;
   height: 100vh;
+  
 }
 .fade-enter-from,
 .fade-leave-to{

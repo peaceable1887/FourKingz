@@ -8,7 +8,7 @@
     
     <div class="container">
         <LogoAnimation></LogoAnimation>
-        <div class="row row-cols-1 g-4">
+        <div class="row row-cols-1 g-4" ref="row">
             <div class="col">
                 <router-link to="/game">
                     <Button text="Spiel starten"></Button>
@@ -43,6 +43,7 @@
         {
             return{
                 snackbar: false,
+                showMenuAnimation: localStorage.getItem("animation")
             }
         },
         mounted()
@@ -53,6 +54,17 @@
                 this.sucMsg()
                 localStorage.setItem("snackbar", this.snackbar) 
             }
+
+            if(localStorage.getItem("animation") === null)
+            {
+                localStorage.setItem("animation", false);
+            }
+
+            if(this.showMenuAnimation)
+            {
+                this.$refs.row.style.opacity = 1;
+                this.$refs.row.style.animation = "none";
+            }
         },
         methods:
         {
@@ -61,7 +73,7 @@
             {
                 let x = document.getElementById("snackbar");
                 x.className = "show";
-                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
             },
         }
     }
@@ -90,6 +102,15 @@
     z-index: 1;
     position: relative;
 }
+.row
+{
+    opacity: 0;
+    animation-name: showMenu;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 6s;
+}
 .col
 {
     display: -webkit-box;
@@ -98,6 +119,7 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+
 }
 img
 {
@@ -131,6 +153,17 @@ Button
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@keyframes showMenu 
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadein {
