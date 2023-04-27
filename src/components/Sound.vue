@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="on" v-if="soundOn">
+        <div class="on" v-if="soundIcon">
             <button @click="muteSound()">
                 <img src="../assets/iconmonstr-audio-7-240.png" loading="lazy">
             </button>
@@ -21,22 +21,35 @@
         data()
         {
             return{
-                soundOn: false,
+                soundIcon: false,
                 audio: new Audio()
             }
         },
+        mounted()
+        {
+            if(localStorage.getItem("sound") === "true")
+            {
+                this.soundIcon = true
+            }else
+            {
+                this.soundIcon = false
+            }
+        },
+        
         methods:
         {
             muteSound()
             {
-                this.soundOn = !this.soundOn;
-
-                if(this.soundOn)
+                this.soundIcon = !this.soundIcon
+           
+                if(!JSON.parse(localStorage.getItem("sound")))
                 { 
                     this.playAudio(require('@/assets/Pisco Sour.mp3'))
+                    localStorage.setItem("sound", true)
                 }else
                 {
                     this.pauseAudio()
+                    localStorage.setItem("sound", false)
                 }    
             },
 
@@ -63,5 +76,12 @@ button
 img
 {
     height: 35px;
+}
+@media(max-height: 568px)
+{
+    img
+    {
+        height: 25px;
+    }
 }
 </style>

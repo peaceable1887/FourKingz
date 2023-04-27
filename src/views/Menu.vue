@@ -105,11 +105,16 @@
 .row
 {
     opacity: 0;
-    animation-name: showMenu;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-delay: 6s;
+    -webkit-animation-name: showMenu;
+            animation-name: showMenu;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-delay: 6s;
+            animation-delay: 6s;
 }
 .col
 {
@@ -153,6 +158,17 @@ Button
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes showMenu 
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
 }
 @keyframes showMenu 
 {

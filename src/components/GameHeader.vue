@@ -49,10 +49,20 @@
 
 .box
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 3.5vh 0;
     background-color: var(--color-second);
     color: var(--color-main);
     font-size: 22px;
-    padding: 20px 0;
     margin-bottom: 10vh;
     text-align: center;
     border-radius: 10px;
@@ -69,14 +79,11 @@ span
 {
     .box
     {
-        font-size:14px;
-        height: 40px;
-        padding: 9px 0;
+        font-size:18px;
     }
     span
     {
-        font-size: 14px;
-        margin-left: 8px;
+        font-size: 18px;
     }
     br
     {

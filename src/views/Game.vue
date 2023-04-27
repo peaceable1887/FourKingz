@@ -72,6 +72,7 @@
   </template>
 
   <script>
+
     //Import Swiper Vue.js components
     import { Swiper, SwiperSlide} from 'swiper/vue';
     //Import Swiper styles
@@ -450,8 +451,12 @@
 .cardContainer
 {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 .swiper 
 {
@@ -483,6 +488,8 @@
 }
 .v-leave-active 
 {
+    -webkit-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
 }
 .v-leave-to 
@@ -509,9 +516,15 @@
 #overlayContent
 {
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     top: 50%;
     left: 50%;
     font-size: 24px;
@@ -522,12 +535,19 @@
     background-color: var(--color-second);
     border: 4px solid var(--color-main);
     border-radius: 10px;
-    transform: translate(-50%, -50%);
-    animation-name: defaultOverlay;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-direction: alternate;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-animation-name: defaultOverlay;
+            animation-name: defaultOverlay;
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
 }
 .image img
 {
@@ -550,7 +570,8 @@ Button
     margin: 10px;
     color: var(--color-second);
     background-color: var(--color-main);
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 Button:active
 {
@@ -561,37 +582,62 @@ Button:active
 .cardOverlayBg
 {
     position: fixed; 
-    top: 0; 
-    left: 0; 
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgba(0,0,0,0);
     z-index: 1;
-    animation-name: cardOverlayBg;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    top: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-animation-name: cardOverlayBg;
+            animation-name: cardOverlayBg;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            animation-delay: 4s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 .cardOverlay
 {
     position: absolute;
-    top: 0;
-    z-index: 2;
+    z-index: 1;
     width: 240px;
     height: 320px;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    -o-transition: transform 1s;
     transition: transform 1s;
-    transform-style: preserve-3d;
-    animation-name: cardOverlay;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    transition: transform 1s, -webkit-transform 1s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-animation-name: cardOverlay;
+            animation-name: cardOverlay;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 @media(max-height: 568px)
 {
     .swiper
     {
-        width: 160px;
-        height: 230px;
+        width: 200px;
+        height: 270px;
+    }
+}
+@-webkit-keyframes defaultOverlay
+{
+    from
+    {
+        opacity: 0;   
+    }
+    to
+    {
+        -webkit-transition: opacity 0.5s ease-out;
+        -o-transition: opacity 0.5s ease-out;
+        transition: opacity 0.5s ease-out;
     }
 }
 @keyframes defaultOverlay
@@ -602,12 +648,21 @@ Button:active
     }
     to
     {
+        -webkit-transition: opacity 0.5s ease-out;
+        -o-transition: opacity 0.5s ease-out;
         transition: opacity 0.5s ease-out;
     }
 }
-@keyframes myNEWmove {
-  from {}
-  to {obackground-color: red }
+/*@-webkit-keyframes cardOverlayBg
+{
+    0%
+    {
+        background-color: rgba(0,0,0,0);
+    }
+    100%
+    {
+        background-color: rgba(0,0,0,0.5);
+    }
 }
 @keyframes cardOverlayBg
 {
@@ -615,30 +670,45 @@ Button:active
     {
         background-color: rgba(0,0,0,0);
     }
-    50%
-    {
-        background-color: rgba(0,0,0,0.25);
-    }
     100%
     {
         background-color: rgba(0,0,0,0.5);
     }
+}*/
+@-webkit-keyframes cardOverlay
+{
+   0%
+   {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+   }
+   50%
+   {
+        -webkit-transform: scale(1.15) translate(0, -20%);
+                transform: scale(1.15) translate(0, -20%)
+   }
+   100%
+   {
+        -webkit-transform: scale(1.15) translate(0, -20%) rotateY(180deg);
+                transform: scale(1.15) translate(0, -20%) rotateY(180deg);  
+   }
 }
 @keyframes cardOverlay
 {
    0%
    {
-        transform: scale(1);
+        -webkit-transform: scale(1);
+                transform: scale(1);
    }
    50%
    {
-        transform: scale(1.15) translate(0, -20%)
+        -webkit-transform: scale(1.15) translate(0, -20%);
+                transform: scale(1.15) translate(0, -20%)
    }
    100%
    {
-        transform: scale(1.15) translate(0, -20%) rotateY(180deg);
-        
-        
+        -webkit-transform: scale(1.15) translate(0, -20%) rotateY(180deg);
+                transform: scale(1.15) translate(0, -20%) rotateY(180deg);  
    }
 }
 

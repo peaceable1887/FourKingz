@@ -82,25 +82,7 @@
     justify-content: center;
   
 }
-.imgLogo
-{
-    background-image: url("../assets/logo_fourKingz2.png");
-    background-size: 150px 180px;
-    width: 150px;
-    height: 180px;
-    position: absolute;
-    z-index: 1;
-}
-.imgBg
-{
-    background-image: url("../assets/dottedPattern.png");
-    background-repeat: repeat;
-    background-size: 260px 280px ;
-    width: 100% ;
-    height: 100%;
-    opacity: 0.15;
-    position: absolute;
-}
+
 .card_face--front h2
 {
     color: white;
@@ -169,7 +151,7 @@
     }
     .card_header
     {
-        height: 115px;
+        height: 135px;
     }
     .card_header h2
     {
@@ -177,7 +159,7 @@
     }
     .card_body
     {
-        height: 115px;
+        height: 135px;
     }
     .cardAction
     {

@@ -65,11 +65,14 @@ Button
     height: 40px;  
     width: 40px;
     border: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 Button:active
 {
-    transform: scale(.98);
+    -webkit-transform: scale(.98);
+        -ms-transform: scale(.98);
+            transform: scale(.98);
 }
 @media(max-height: 568px)
 {
@@ -79,7 +82,7 @@ Button:active
     }
     .box-text
     {
-        font-size: 18px;
+        font-size: 20px;
     }
     Button
     {
