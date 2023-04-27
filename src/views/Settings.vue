@@ -220,12 +220,21 @@ Button
     margin: 15px 0 30px 0;
     font-size: 20px;
     padding: 5px 0;
+    box-shadow: none;
 }
 @media(max-height: 568px)
 {
     form
     {
-        height: 400px;
+        height: 500px;
+    }
+    .form-floating input
+    {
+        height: 55px;
+    }
+    .col
+    {
+        padding: 0;
     }
     .btn
     {

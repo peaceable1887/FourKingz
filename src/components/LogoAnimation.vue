@@ -70,7 +70,7 @@
 .animationContainer
 {
     margin-top: 10vh;
-    height: 300px;
+    height: 330px;
 }
 .cards 
 {
@@ -79,7 +79,6 @@
 .card 
 {
     background-size: cover;
-    height: 140px;
     width: 90px;
     border-radius: 5px;
     border:none;
@@ -414,5 +413,29 @@
         opacity: 1;
         scale: 1;
     }
+}
+@media(max-height: 568px)
+{
+    .animationContainer
+    {
+        height: 270px;
+    }
+    .card 
+    {
+        width: 70px;
+    }
+    .jug img
+    {
+        height: 100px;
+    } 
+    .logo
+    {
+        top: 100px;
+    }
+    .logo img
+    {
+        height: 90px;
+    }
+    
 }
 </style>

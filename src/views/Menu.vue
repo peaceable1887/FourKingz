@@ -197,30 +197,17 @@ Button
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
+
+@media screen and (orientation: landscape) 
+{
+    
+}
 @media(max-height: 568px)
 {
-    img
-    {
-        height: 200px;
-    }
     Button
     {
         width: 200px;
         font-size: 20px;
-        padding: 5px 0 5px 0;
-    }
-}
-@media screen and (orientation: landscape) {
-    img
-    {
-        height: 180px;
-    }
-    Button
-    {
-        width: 200px;
-        padding: 4px 20px;
-        font-size: 18px;
-        border-radius: 10px;
     }
 }
 </style>
