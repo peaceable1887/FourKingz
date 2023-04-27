@@ -10,8 +10,7 @@
         @click="$emit('flip-card')" 
         >
         <div class="card_face card_face--front">
-            <div class="imgLogo" loading="lazy"></div>
-            <div class="imgBg" loading="lazy"></div>
+            <div class="fontBg">Four<br>Kingz</div>
         </div>
         <div class="card_face card_face--back">
             <div class="card content" >
@@ -78,11 +77,19 @@
 {
     background-color: var(--color-second);
     display: flex;
-    align-items: center;
     justify-content: center;
-  
+    align-items: center;
 }
-
+.fontBg
+{
+    font-family: var(--font-logo);
+    font-size: 55px;
+    line-height: 90%;
+    text-align: center;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-fill-color: var(--color-main);
+}
 .card_face--front h2
 {
     color: white;

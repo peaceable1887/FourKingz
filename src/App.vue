@@ -6,19 +6,18 @@
       </div>
     </transition>
   </router-view>
- <BackgroundAnimation></BackgroundAnimation>
 </template>
 
 <script>
 //Import required components
-import BackgroundAnimation from "./components/BackgroundAnimation.vue";
+
 
 export default 
 {
   name: 'App',
   components:
   {
-      BackgroundAnimation,
+      
   },
   mounted()
   {
@@ -52,12 +51,13 @@ export default
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&family=Rubik&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Roboto:wght@100&family=Rubik&display=swap');
 :root
 {
   --color-main: #ed9623;
   --color-second: #222847;
   --font-main: 'Lilita One', cursive;
+  --font-logo: 'Luckiest Guy', cursive;
 }
 
 html,
@@ -85,4 +85,5 @@ body
   -o-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out;
 }
+
 </style>

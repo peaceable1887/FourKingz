@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="logo" ref="logo">
-            <img src="../assets/logo-schrift.png" loading="lazy">
+            Four<br>Kingz
         </div>
     </div>
 </template>
@@ -78,6 +78,7 @@
 }
 .card 
 {
+    height: 140px;
     background-size: cover;
     width: 90px;
     border-radius: 5px;
@@ -102,7 +103,14 @@
 .logo
 {
     position: relative;
+    font-family: var(--font-logo);
+    font-size: 75px;
+    line-height: 90%;
+    text-align: center;
     z-index: 3;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-fill-color: var(--color-main);
     top: 130px;
     text-align: center;
     opacity: 0;
@@ -118,7 +126,6 @@
     -webkit-animation-delay: 4s;
             animation-delay: 4s;
 }
-
 .jug:nth-child(1) 
 {
     -webkit-transform: scaleX(-1) translate(150vw, 0);
@@ -423,6 +430,7 @@
     .card 
     {
         width: 70px;
+        height: 100px;
     }
     .jug img
     {
@@ -431,10 +439,7 @@
     .logo
     {
         top: 100px;
-    }
-    .logo img
-    {
-        height: 90px;
+        font-size: 57px;
     }
     
 }

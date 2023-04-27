@@ -5,7 +5,6 @@
     Die Komponente "Menu.vue" ist für die Darstellung des Menü bzw. der Startseite veranwortlich.
 -->
 <template>
-    
     <div class="container">
         <LogoAnimation></LogoAnimation>
         <div class="row row-cols-1 g-4" ref="row">
@@ -24,12 +23,14 @@
     <div class="container">
         <div id="snackbar">Erfolgreich gespeichert</div>
     </div>
+    <BackgroundAnimation></BackgroundAnimation>
 </template>
 
 <script>
     //Import required components
     import LogoAnimation from "../components/LogoAnimation.vue";
     import Button from "../components/Button.vue";
+    import BackgroundAnimation from "../components/BackgroundAnimation.vue";
 
     export default 
     {
@@ -38,6 +39,7 @@
         {
             LogoAnimation,
             Button,
+            BackgroundAnimation,
         },
         data()
         {
