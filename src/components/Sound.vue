@@ -73,10 +73,6 @@ button
     border: none;
     background: none;
 }
-img
-{
-    height: 35px;
-}
 @media(max-height: 568px)
 {
     img

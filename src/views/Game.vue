@@ -549,10 +549,6 @@
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
 }
-.image img
-{
-    width: 80px;
-}
 .gif
 {
     width: 200px !important;
@@ -582,25 +578,16 @@ Button:active
 .cardOverlayBg
 {
     position: fixed; 
-    z-index: 1;
+    z-index: 2;
     top: 0; 
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    -webkit-animation-name: cardOverlayBg;
-            animation-name: cardOverlayBg;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-            animation-delay: 4s;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
 }
 .cardOverlay
 {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     width: 240px;
     height: 320px;
     -webkit-transition: -webkit-transform 1s;
@@ -653,28 +640,6 @@ Button:active
         transition: opacity 0.5s ease-out;
     }
 }
-/*@-webkit-keyframes cardOverlayBg
-{
-    0%
-    {
-        background-color: rgba(0,0,0,0);
-    }
-    100%
-    {
-        background-color: rgba(0,0,0,0.5);
-    }
-}
-@keyframes cardOverlayBg
-{
-    0%
-    {
-        background-color: rgba(0,0,0,0);
-    }
-    100%
-    {
-        background-color: rgba(0,0,0,0.5);
-    }
-}*/
 @-webkit-keyframes cardOverlay
 {
    0%
@@ -703,7 +668,7 @@ Button:active
    50%
    {
         -webkit-transform: scale(1.15) translate(0, -20%);
-                transform: scale(1.15) translate(0, -20%)
+                transform: scale(1.15) translate(0, -20%);
    }
    100%
    {

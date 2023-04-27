@@ -2,28 +2,28 @@
     <div class="animationContainer">
         <div class="cards" ref="cards">
             <div class="card">
-                <img src="../assets/king-card-pik-transparent.png" height="140" loading="lazy">
+                <img src="../assets/king-card-pik-transparent.png" loading="lazy">
             </div>
             <div class="card">
-                <img src="../assets/king-card-caro-transparent.png" height="140" loading="lazy">
+                <img src="../assets/king-card-caro-transparent.png" loading="lazy">
             </div>
             <div class="card">
-                <img src="../assets/king-card-kreuz-transparent.png" height="140" loading="lazy">
+                <img src="../assets/king-card-kreuz-transparent.png" loading="lazy">
             </div>
             <div class="card">
-                <img src="../assets/king-card-herz-transparent.png" height="140" loading="lazy">
+                <img src="../assets/king-card-herz-transparent.png" loading="lazy">
             </div>
         </div>
         <div class="jugs" ref="jugs">
             <div class="jug">
-                <img src="../assets/Krug-Single-Transparent.png" height="120" loading="lazy">
+                <img src="../assets/Krug-Single-Transparent.png" loading="lazy">
             </div>
             <div class="jug">
-                <img src="../assets/Krug-Single-Transparent.png" height="120" loading="lazy">
+                <img src="../assets/Krug-Single-Transparent.png" loading="lazy">
             </div>
         </div>
         <div class="logo" ref="logo">
-            <img src="../assets/logo-schrift.png" height="110" loading="lazy">
+            <img src="../assets/logo-schrift.png" loading="lazy">
         </div>
     </div>
 </template>
@@ -94,6 +94,7 @@
 .jugs
 {
     z-index: 2;
+    margin-bottom: 15px;
 }
 .jug
 {

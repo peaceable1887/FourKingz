@@ -89,10 +89,6 @@
     background-color: var(--color-second);
     border: 6px solid var(--color-main);
 }
-img
-{
-    height: 200px;
-}
 .card_face--front h2
 {
     color: white;
@@ -114,7 +110,11 @@ img
         -ms-flex-direction: column;
             flex-direction: column;
 }
-
+.image img
+{
+    height: 90px;
+    padding: 15px 0 15px 0;
+}
 .card_content
 {
     width: 100%;
@@ -150,11 +150,6 @@ img
     margin: 0;
     letter-spacing: 1.5px; 
 }
-.logo
-{
-    height: 90px;
-    width: 90px;
-}
 .card_body
 {
     display: -webkit-box;
@@ -179,12 +174,7 @@ img
 {
     word-break: break-word;
 }
-.image img
-{
-    height: 90px;
-    width: 60px;
-    padding: 15px 0 15px 0;
-}
+
 .text
 {
     color: var(--color-main);

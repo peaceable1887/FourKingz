@@ -61,7 +61,6 @@
 Button
 {
     background: url("../assets/arrow-left-toon.png") no-repeat;
-    background-size: 40px 40px;
     height: 40px;  
     width: 40px;
     border: none;

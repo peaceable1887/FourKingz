@@ -126,10 +126,6 @@
             justify-content: center;
 
 }
-img
-{
-    height: 300px;
-}
 Button
 {
     width: 250px;
