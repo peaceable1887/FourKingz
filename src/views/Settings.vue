@@ -8,7 +8,7 @@
 <template>
     <Header class="settings" @atClickArrow="backToMenu()" text="Einstellungen"></Header>
     <div class="container">
-        <form @submit.prevent="onSubmit" novalidate>
+        <form id="form" @submit.prevent="onSubmit" novalidate>
             <div class="form-floating">
                 <input type="text" id="ace" class="form-control form-control-sm" name="ace" placeholder="Ass" v-model="ace" v-on:keypress="regexPattern($event)" required>
                 <label for="ace" class="form-label">Ass:</label>
@@ -57,17 +57,17 @@
                 <div class="invalid-feedback">Textfeld darf nicht leer sein.</div>
                 <div class="valid-feedback"></div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <Button @click="clearCardActionValue()" text="Zurücksetzen"></Button>
-                    </div>
-                    <div class="col">
-                        <Button type="submit" text="Speichern"></Button>
-                    </div>
-                </div>
-            </div>   
         </form>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <Button @click="clearCardActionValue()" text="Zurücksetzen"></Button>
+                </div>
+                <div class="col">
+                    <Button type="submit" form="form" text="Speichern"></Button>
+                </div>
+            </div>
+        </div>   
     </div>
 </template>
 
@@ -100,6 +100,7 @@
         },
         mounted()
         {
+            document.addEventListener('focusout', function() {window.scrollTo(0, 0)});
             
             const form = document.querySelector("form")
 
@@ -188,14 +189,14 @@
 </script>
 
 <style lang="scss" scoped>
+.settings
+{
+    padding: 0;
+}
 .container
 {
     z-index: 1;
     position: relative;
-}
-.settings
-{
-    padding: 0;
 }
 .row
 {
@@ -203,8 +204,8 @@
 }
 form
 {
-    height: 600px;
-    overflow: scroll;
+    overflow: auto;
+    height: 550px;
 }
 .form-floating
 {
@@ -217,7 +218,7 @@ form
 Button
 {
     width: 150px;
-    margin: 15px 0 30px 0;
+    margin: 20px 0 15px 0;
     font-size: 20px;
     padding: 5px 0;
     box-shadow: none;
@@ -226,7 +227,7 @@ Button
 {
     form
     {
-        height: 500px;
+        height: 400px;
     }
     .form-floating input
     {

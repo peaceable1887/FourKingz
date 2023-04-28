@@ -72,15 +72,18 @@ body
   font-family: var(--font-main);
   overflow: hidden;
   height: 100vh;
+  position: relative;
   
 }
 .fade-enter-from,
-.fade-leave-to{
+.fade-leave-to
+{
   opacity: 0;
 }
 
 .fade-enter-active,
-.fade-leave-active{
+.fade-leave-active
+{
   -webkit-transition: opacity 0.5s ease-out;
   -o-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out;

@@ -49,7 +49,7 @@
     <div id="overlay" ref="overlay">
         <div id="overlayContent" v-if="leaveGame">
             <div class="image">
-                <img src="../assets/questionmark-orange.png">
+                <img class="icon" src="../assets/questionmark-orange.png">
             </div>
             <span class="text">Möchtest du das Spiel beenden?</span>
             <div class="btnWrapper">
@@ -548,6 +548,10 @@
             animation-fill-mode: forwards;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
+}
+.icon
+{
+    height: 75px;
 }
 .gif
 {

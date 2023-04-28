@@ -8,18 +8,18 @@
                 <img src="../assets/king-card-caro-transparent.png" loading="lazy">
             </div>
             <div class="card">
-                <img src="../assets/king-card-kreuz-transparent.png" loading="lazy">
+                <img src="../assets/king-card-cross-transparent.png" loading="lazy">
             </div>
             <div class="card">
-                <img src="../assets/king-card-herz-transparent.png" loading="lazy">
+                <img src="../assets/king-card-heart-transparent.png" loading="lazy">
             </div>
         </div>
         <div class="jugs" ref="jugs">
             <div class="jug">
-                <img src="../assets/Krug-Single-Transparent.png" loading="lazy">
+                <img src="../assets/jug-single-transparent.png" loading="lazy">
             </div>
             <div class="jug">
-                <img src="../assets/Krug-Single-Transparent.png" loading="lazy">
+                <img src="../assets/jug-single-transparent.png" loading="lazy">
             </div>
         </div>
         <div class="logo" ref="logo">

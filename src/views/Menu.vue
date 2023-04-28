@@ -25,7 +25,6 @@
     </div>
     <BackgroundAnimation></BackgroundAnimation>
 </template>
-
 <script>
     //Import required components
     import LogoAnimation from "../components/LogoAnimation.vue";

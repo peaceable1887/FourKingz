@@ -2,12 +2,12 @@
     <div class="container">
         <div class="on" v-if="soundIcon">
             <button @click="muteSound()">
-                <img src="../assets/iconmonstr-audio-7-240.png" loading="lazy">
+                <img src="../assets/audio-on.png" loading="lazy">
             </button>
         </div>
         <div class="off" v-else>
             <button @click="muteSound()">
-                <img src="../assets/iconmonstr-audio-11-240.png" loading="lazy">
+                <img src="../assets/audio-off.png" loading="lazy">
             </button>
         </div>
     </div>
@@ -68,6 +68,10 @@
 </script>
 
 <style lang="scss" scoped>
+.container
+{
+    padding: 0
+}
 button
 {
     border: none;

@@ -109,7 +109,7 @@
 
 .card_header
 {
-    background-color: var(--color-main);
+    background-color: var(--color-second);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -119,7 +119,7 @@
 }
 .card_header h2
 {
-    color: #222847;
+    color: var(--color-main);
     font-size: 50px;
     font-weight: bold;
     text-transform: uppercase;
@@ -138,11 +138,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--color-main);
+    color: var(--color-second);
     height: 160px;
     padding: 0 15px;
     font-size: 22px;
-    background-color: var(--color-second);
+    background-color: var(--color-main);
     border-radius: 16px;
 
 }
