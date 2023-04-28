@@ -80,19 +80,12 @@
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 16px;
-    -webkit-box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
 }
 
 .card_face--front
 {
     background-color: var(--color-second);
     border: 6px solid var(--color-main);
-}
-.card_face--front h2
-{
-    color: white;
-    font-size: 32px;
 }
 
 .card_face--back

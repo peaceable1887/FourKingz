@@ -69,16 +69,18 @@
     backface-visibility: hidden;
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
     border: 4px solid var(--color-main);
 }
 
 .card_face--front
 {
-    background-color: var(--color-second);
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--color-second);
+    opacity: 1;
+    background: repeating-linear-gradient( 45deg, #1e233b, #1e233b 4.5px, var(--color-second) 4.5px, var(--color-second) 22.5px );
 }
 .fontBg
 {
@@ -90,12 +92,6 @@
     -webkit-text-stroke-color: #000000;
     -webkit-text-fill-color: var(--color-main);
 }
-.card_face--front h2
-{
-    color: white;
-    font-size: 32px;
-}
-
 .card_face--back
 {
     transform: rotateY(180deg);
@@ -144,7 +140,6 @@
     font-size: 22px;
     background-color: var(--color-main);
     border-radius: 16px;
-
 }
 .cardAction
 {
