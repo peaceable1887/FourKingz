@@ -208,4 +208,35 @@ Button:active
     border: 1px solid var(--color-main);
     background-color: var(--color-second);
 }
+@media (max-width: 320px) and (max-height: 568px)
+{
+    .card_header
+    {
+        height: 140px;
+    }
+    .card_header h2
+    {
+        font-size: 30px;
+    }
+    .card_body
+    {
+        height: 140px;
+        font-size: 16px;
+    }
+    .image img
+    {
+        height: 85px;
+    }
+    .text
+    {
+        font-size: 17px;
+    }
+    Button
+    {
+        width: 140px;
+        font-size: 17px;
+        padding: 3px;
+        margin: 9px;
+    }
+}
 </style>

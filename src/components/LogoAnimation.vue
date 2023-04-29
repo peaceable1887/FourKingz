@@ -421,7 +421,8 @@
         scale: 1;
     }
 }
-@media(max-height: 568px)
+
+@media (max-width: 320px) and (max-height: 568px)
 {
     .animationContainer
     {
@@ -441,6 +442,5 @@
         top: 100px;
         font-size: 57px;
     }
-    
 }
 </style>

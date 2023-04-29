@@ -145,7 +145,7 @@
 {
     word-break: break-word;
 }
-@media(max-height: 568px)
+@media(max-width: 320px) and (max-height: 568px)
 {
     .img
     {

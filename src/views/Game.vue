@@ -62,7 +62,7 @@
         <div id="overlayContent" v-if="showTutorial" >
             <span class="text">Tutorial</span>
             <div class="image">
-                <img class="gif" src="../assets/tutorial-fourkingz-4zu3_AdobeExpress.gif">
+                <img class="gif" src="../assets/tutorial-FourKingz.gif">
             </div>
             <div class="btnWrapper">
                 <Button class="remain" @click="hideOverlay()" text="Verstanden"></Button>
@@ -610,14 +610,7 @@ Button:active
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
 }
-@media(max-height: 568px)
-{
-    .swiper
-    {
-        width: 200px;
-        height: 270px;
-    }
-}
+
 @-webkit-keyframes defaultOverlay
 {
     from
@@ -680,6 +673,43 @@ Button:active
                 transform: scale(1.15) translate(0, -20%) rotateY(180deg);  
    }
 }
-
-
+@media (max-width: 320px) and (max-height: 568px)
+{
+    .swiper
+    {
+        width: 200px;
+        height: 270px;
+    }
+    #overlayContent
+    {
+        width: 220px;
+        height: 300px;
+        font-size: 22px;
+    }
+    .text
+    {
+        font-size: 20px;
+    }
+    .icon
+    {
+        height: 60px;
+    }
+    .gif
+    {
+        width: 143px !important;
+    }
+    Button
+    {
+        width: 140px;
+        font-size: 18px;
+        
+    }
+    /* CardAnimation Overlay */
+    .cardOverlay
+    {
+        width: 200px;
+        height: 280px;
+        
+    }
+}
 </style>

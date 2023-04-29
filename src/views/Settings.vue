@@ -205,7 +205,7 @@
 form
 {
     overflow: auto;
-    height: 550px;
+    height: 500px;
 }
 .form-floating
 {
@@ -223,7 +223,7 @@ Button
     padding: 5px 0;
     box-shadow: none;
 }
-@media(max-height: 568px)
+@media (max-width: 320px) and (max-height: 568px)
 {
     form
     {
@@ -231,17 +231,21 @@ Button
     }
     .form-floating input
     {
-        height: 55px;
+        height: 40px;
+    }
+    .form-floating label
+    {
+        padding: 8px 0 0 10px;
+        font-size: 15px;
     }
     .col
     {
         padding: 0;
     }
-    .btn
+    Button
     {
         width: 120px;
-        font-size: 16px;
+        font-size: 18px;
     }
 }
-
 </style>

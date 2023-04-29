@@ -199,11 +199,7 @@ Button
   to {bottom: 0; opacity: 0;}
 }
 
-@media screen and (orientation: landscape) 
-{
-    
-}
-@media(max-height: 568px)
+@media (max-width: 320px) and (max-height: 568px)
 {
     Button
     {
