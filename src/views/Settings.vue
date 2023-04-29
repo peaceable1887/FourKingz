@@ -223,7 +223,7 @@ Button
     padding: 5px 0;
     box-shadow: none;
 }
-@media (max-width: 320px) and (max-height: 568px)
+@media (max-height: 568px)
 {
     form
     {
@@ -246,6 +246,64 @@ Button
     {
         width: 120px;
         font-size: 18px;
+    }
+}
+@media (min-height: 568px) and (max-height: 640px)
+{
+    form
+    {
+        height: 470px;
+    }
+    .form-floating input
+    {
+        height: 50px;
+    }
+    .form-floating label
+    {
+        padding: 11px 0 0 10px;
+        font-size: 18px;
+    }
+    .col
+    {
+        padding: 0;
+    }
+    Button
+    {
+        width: 120px;
+        font-size: 18px;
+    }
+}
+@media (min-width: 360px)
+{
+    Button
+    {
+        width: 140px;
+        font-size: 20px;
+    }
+}
+@media (min-height: 640px) and (max-height: 800px)
+{
+    form
+    {
+        height: 600px;
+    }
+    .form-floating input
+    {
+        height: 70px;
+    }
+    .form-floating label
+    {
+        padding: 20px 0 0 10px;
+        font-size: 18px;
+    }
+    .col
+    {
+        padding: 0;
+    }
+    Button
+    {
+        width: 180px;
+        font-size: 22px;
     }
 }
 </style>
