@@ -281,19 +281,19 @@ Button
         font-size: 20px;
     }
 }
-@media (min-height: 640px) and (max-height: 800px)
+@media (min-height: 668px) and (max-height: 800px)
 {
     form
     {
-        height: 600px;
+        height: 550px;
     }
     .form-floating input
     {
-        height: 70px;
+        height: 60px;
     }
     .form-floating label
     {
-        padding: 20px 0 0 10px;
+        padding: 15px 0 0 10px;
         font-size: 18px;
     }
     .col

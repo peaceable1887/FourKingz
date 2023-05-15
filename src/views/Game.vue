@@ -20,7 +20,7 @@
                     <swiper
                     v-if="gaming"
                     :effect="'cards'"
-                    :grabCursor="true"
+                    :grabCursor="false"
                     :touchStartPreventDefault="false"
                     :allowSlidePrev="false"
                     :allowSlideNext="false"
@@ -478,9 +478,6 @@
         -ms-flex-pack: center;
             justify-content: center;
     border-radius: 18px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     -moz-user-select: none;

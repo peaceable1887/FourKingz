@@ -78,11 +78,11 @@
 }
 .card 
 {
-    height: 140px;
+    height: 135px;
     background-size: cover;
     width: 90px;
     border-radius: 5px;
-    border:none;
+    border: none;
     position: absolute;
     -webkit-box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
             box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
